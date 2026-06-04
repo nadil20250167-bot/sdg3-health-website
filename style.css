@@ -6,12 +6,31 @@ h1 {
     color: green;
 }
 
-nav li a{
-    list-style: none;
-     display: inline;
-    padding: auto;
- }
+header{
+    background-color: blue;
+    padding: 40px;
+}
 
-    
+.nav-links{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    background-color: white;
+    color: red;
+}
     
 

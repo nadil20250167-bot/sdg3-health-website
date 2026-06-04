@@ -6,7 +6,7 @@ h1 {
     color: green;
 }
 
-nav{
+nav li a{
     list-style: none;
      display: inline;
     padding: auto;

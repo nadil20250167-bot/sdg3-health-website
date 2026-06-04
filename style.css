@@ -5,3 +5,13 @@ body {
 h1 {
     color: green;
 }
+
+nav{
+    list-style: none;
+     display: inline;
+    padding: auto;
+ }
+
+    
+    
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE - Technical Report (Student 3)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3 {
+            color: #831843;
+        }
+
+        h1 {
+            border-bottom: 2px solid #be185d;
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            margin-top: 32px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 6px;
+        }
+
+        .meta-table, .meeting-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .meta-table th, .meta-table td, .meeting-table th, .meeting-table td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .meta-table th, .meeting-table th {
+            background-color: #fdf2f8;
+        }
+
+        .meeting-table th {
+            font-size: 14px;
+        }
+
+        .meeting-table td {
+            font-size: 13px;
+        }
+
+        .nav-links {
+            margin: 20px 0;
+            background-color: #fdf2f8;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .nav-links a {
+            margin-right: 16px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .code-block {
+            background-color: #f1f5f9;
+            padding: 12px;
+            border-left: 4px solid #be185d;
+            font-family: monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Page Editor - Technical & Reflective Report</h1>
+    
+    <div class="nav-links">
+        <a href="feedback.html" target="_blank">View Live Feedback Directory</a>
+        <a href="team.html" target="_blank">View Live Team Page</a>
+        <a href="content_ST3.html" target="_blank">View Live Content Page</a>
+        <a href="validation_ST3.html">View Validation Page (ST3)</a>
+    </div>
+
+    <!-- Student Metadata -->
+    <table class="meta-table">
+        <tr>
+            <th>Student Name:</th>
+            <td>Emily Davis</td>
+            <th>Role:</th>
+            <td>Student 3 (Forms & Layout Lead)</td>
+        </tr>
+        <tr>
+            <th>UoW Student ID:</th>
+            <td>w3456789</td>
+            <th>Assigned Pages:</th>
+            <td>Feedback, Team, Content ST3</td>
+        </tr>
+    </table>
+
+    <!-- Technical Description -->
+    <h2>Technical Description</h2>
+    
+    <h3>HTML5 Structure</h3>
+    <p>I structured <code>feedback.html</code> using two main semantic modules. First, a scrollable list containing health opportunities. Second, an interactive form grouped by <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> tags separating personal data from feedback content. On <code>team.html</code>, I structured 4 profile blocks with custom avatar parameters.</p>
+
+    <h3>CSS Techniques & Layout</h3>
+    <p>I designed the team page using pure CSS hover details. By default, card details are collapsed using <code>max-height: 0; opacity: 0;</code>. On hover or keyboard focus, these values expand to display the full description:</p>
+    <div class="code-block">
+.member-card:hover .contribution-details,<br>
+.member-card:focus-within .contribution-details {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max-height: 200px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;<br>
+}
+    </div>
+
+    <h3>JavaScript Functionality</h3>
+    <p>I programmed the JS form validator which runs on submission. If inputs are missing or incorrect, it intercepts the submit event, highlights borders in red, and updates descriptive warning elements. I also coded a live text area character tracker:</p>
+    <div class="code-block">
+function updateCharCount() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const left = 150 - comment.value.length;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;remaining.textContent = left;<br>
+}
+    </div>
+
+    <!-- Group Meetings Log -->
+    <h2>Group Meetings & Log</h2>
+    <p>As the layout and forms lead, I logged my meeting contributions below:</p>
+    
+    <table class="meeting-table">
+        <thead>
+            <tr>
+                <th>Meeting</th>
+                <th>Date & Time</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Individual Contribution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>23 Nov 2025, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Agree SDG & assign roles</td>
+                <td>Yes</td>
+                <td>Agreed to handle the Feedback Directory and Team members information pages.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>30 Nov 2025, 10:00</td>
+                <td>Online (Teams)</td>
+                <td>Discuss color palette</td>
+                <td>Yes</td>
+                <td>Suggested adding high-contrast outline borders around validation error boxes.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>07 Dec 2025, 11:00</td>
+                <td>Hybrid</td>
+                <td>Review DOM scripts</td>
+                <td>Yes</td>
+                <td>Presented the form validator regex formulas that verify telephone and email inputs.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>14 Dec 2025, 15:00</td>
+                <td>Online (Teams)</td>
+                <td>Link checks & validation</td>
+                <td>Yes</td>
+                <td>Assisted Student 1 in confirming relative links across all footer templates.</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>08 Jan 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Accessibility review</td>
+                <td>Yes</td>
+                <td>Configured keyboard tab indexes and aria roles inside team member cards.</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>15 Jan 2026, 10:00</td>
+                <td>Online (Teams)</td>
+                <td>Final code assembly</td>
+                <td>Yes</td>
+                <td>Helped refactor CSS styling variables inside style.css.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Accessibility Considerations -->
+    <h2>Accessibility Considerations</h2>
+    <p>I placed explicit <code>&lt;label&gt;</code> attributes on all form inputs and added <code>tabindex="0"</code> to the team cards. This allows visually impaired students utilizing screen readers to navigate and hear member contribution summaries easily.</p>
+
+    <!-- JANET Compliance -->
+    <h2>Compliance with JANET Regulations</h2>
+    <p>All assets and graphics are locally built and free of intellectual property conflicts. The pages run no tracking cookies or commercial tools, conforming to Westminster publishing guidelines.</p>
+
+    <!-- References -->
+    <h2>References</h2>
+    <ul>
+        <li>W3C (2025) <em>Form Validation Guidelines</em>, W3C Recommendations.</li>
+        <li>Google Fonts (2026) <em>Outfit & Inter Spec</em>, Google.</li>
+    </ul>
+
+</body>
+</html>

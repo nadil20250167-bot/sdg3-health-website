@@ -7,8 +7,9 @@ h1 {
 }
 
 header{
-    background-color: #0077c0;;
-    padding: 10px;
+    background-color: #0077c0;
+    padding: 25px;
+    
 }
 
 .nav-links{
@@ -24,15 +25,21 @@ header{
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 30px;
-    border-radius: 5px;
+    padding: 18px;
+    border-radius: 10px;
 } 
 
 .nav-links a:hover {
     background-color: white;
     color: red;
+    
 }
     
+#hero{
+    padding-bottom: 20px;
+    text-align:justify;
+
+}
 
 p{
     color: #f2f2f2;
@@ -49,9 +56,6 @@ p{
 
 }
 
-.abc{
-    ;
-}
 
 
 

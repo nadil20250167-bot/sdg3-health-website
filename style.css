@@ -5,6 +5,16 @@ body {
 h1 {
     color:#1B1B1B;
 }
+
+h3{
+    font-size: 2rem;
+
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 header{
     background-color: #0077c0;
     padding: 25px;

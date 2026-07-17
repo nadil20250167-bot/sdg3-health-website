@@ -142,12 +142,9 @@ header{
 /* footer*/
 
 
-/* ==========================
-   FOOTER
-========================== */
 
 .site-footer {
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    background: linear-gradient(135deg, #0f172a, #38bdf8);
     color: #ffffff;
     padding: 40px 50px 20px;
     margin-top: 60px;

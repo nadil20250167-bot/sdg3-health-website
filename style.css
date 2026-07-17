@@ -70,13 +70,14 @@ header{
 }
 
 .hero{
-    background-color: #0077c0;
-    text-align: r;
+    background-color: #0077c050;
+    text-align: center;
     padding: 20px;
     margin: 10px;
     border: 5px solid  black;
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
+    
 }
 
 /* Card */
@@ -227,6 +228,91 @@ header{
     text-align: center;
     font-size: 14px;
     color: #cbd5e1;
+}
+
+
+/* Section */
+section {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #0b72b5;
+    margin-bottom: 15px;
+}
+
+#text p {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+    border-left: 6px solid #0b72b5;
+}
+
+/* Gallery */
+.topic-gallery {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.topic-tile {
+    width: 310px;
+    height: 180px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    box-sizing: border-box;
+    transition: 0.4s ease;
+}
+
+/* Different Colors */
+.topic-tile:nth-child(1) {
+    background: #0b6b59;
+}
+
+.topic-tile:nth-child(2) {
+    background: #df9217;
+}
+
+.topic-tile:nth-child(3) {
+    background: #6a9f28;
+}
+
+.topic-tile:nth-child(4) {
+    background: #304b87;
+}
+
+/* Hover Effect */
+.topic-tile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Title */
+.topic-tile h3 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    font-weight: 700;
+}
+
+/* Subtitle */
+.topic-tile p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
 }
 
 

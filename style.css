@@ -11,7 +11,6 @@ header{
     padding: 25px;
     
 }
-
 *{
     margin:0;
     padding:0;
@@ -81,60 +80,86 @@ header{
 }
 
 /* Card */
-.card{
+.card {
     width: 350px;
     height: 700px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;   /* image stacks on top of text */
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    justify-content: center;
-    gap: 25px;               
-    flex-wrap: wrap;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15)
-    }
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
-.card:hover{
+.card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
 /* Image */
-.card img{
+.card img {
     width: 100%;
     height: 220px;
-    object-fit: contain;
-    background: #FBE7C8; /* Change this color for each card */
-    padding: 25px;
+    object-fit: cover;        /* fills the box, crops instead of shrinking */
+    object-position: center;  /* adjust to e.g. "center 30%" if a subject gets cropped */
+    display: block;
 }
 
 /* Card Content */
-.card-body{
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px 20px;
+}
+
+.card {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
     padding: 25px;
 }
 
-/* Heading */
-.card-body h3{
+.card-body h3 {
     color: #004d5a;
     font-size: 32px;
     margin-bottom: 20px;
 }
 
-/* Paragraph */
-.card-body p{
+.card-body p {
     color: #333;
     font-size: 18px;
     line-height: 1.7;
     margin-bottom: 20px;
 }
 
-/* List */
-.card-body ul{
+.card-body ul {
     padding-left: 25px;
 }
 
-.card-body li{
+.card-body li {
     margin-bottom: 12px;
     font-size: 18px;
     line-height: 1.6;

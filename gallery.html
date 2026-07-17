@@ -15,6 +15,107 @@
             line-height:1.6;
 
         }
+       /* ===== Modal ===== */
+
+.gallery-modal {
+    width: 600px;
+    max-width: 90%;
+    padding: 25px;
+    border: none;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Dark background behind the modal */
+.gallery-modal::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* Close button */
+.modal-close {
+    float: right;
+    background: #e63946;
+    color: white;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    background: #c1121f;
+    transform: rotate(90deg);
+}
+
+/* Image */
+#modalImg {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+/* Title */
+#modalTitle {
+    text-align: center;
+    color: #0f766e;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+/* Description */
+#modalDesc {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+/* Controls */
+.modal-controls {
+    display: grid;
+    gap: 15px;
+}
+
+.modal-controls label {
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-controls select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #0f766e;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-controls select:hover {
+    border-color: #2563eb;
+}
+
+.modal-controls select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+#colourPicker{
+    width:50%;
+    height:50px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:none;
+}
 
 
     </style>
@@ -104,9 +205,61 @@
     <p class="footer-bottom">
         &copy;  Group Coursework for SDG 3: Good Health and Well-Being
     </p>
+     </footer>
 
-</footer>
+    <dialog id="galleryModal" class="gallery-modal">
 
+    <button id="modalClose" class="modal-close" aria-label="Close details">
+        &times;
+    </button>
+
+    <img id="modalImg" src="images/Eat to Thrive.jpg" alt="">
+
+    <header>
+        <h2 id="modalTitle">option</h2>
+    </header>
+
+    <section>
+        <p id="modalDesc">choose your options</p>
+    </section>
+   
+
+    <form class="modal-controls">
+
+        <label for="colourSelect">Colour scheme:</label>
+        <select id="colourSelect" name="colourSelect">
+            <option value="teal">Teal (default)</option>
+            <option value="amber">Amber</option>
+            <option value="navy">Navy</option>
+        </select>
+
+        <label for="colourPicker">Choose a colour:</label>
+
+<input
+    type="color"
+    id="colourPicker"
+    name="colourPicker"
+    value="#0f766e">
+
+    </form>
+
+</dialog>
+
+
+<script>
+const modal = document.getElementById("galleryModal");
+const colourPicker = document.getElementById("colourPicker");
+
+modal.showModal();
+
+document.getElementById("modalClose").addEventListener("click", () => {
+    modal.close();
+});
+
+colourPicker.addEventListener("input", function () {
+    modal.style.backgroundColor = this.value;
+});
+</script>
     
     
 </body>

@@ -142,27 +142,68 @@ header{
 /* footer*/
 
 
+/* ==========================
+   FOOTER
+========================== */
+
+.site-footer {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #ffffff;
+    padding: 40px 50px 20px;
+    margin-top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .site-footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 30px;
-    background: #1e293b;
-    color: white;
-    padding: 30px;
 }
 
 .site-footer section {
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
+}
+
+.site-footer h4 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 2px solid #38bdf8;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-footer li {
+    margin: 12px 0;
+}
+
+.site-footer a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #38bdf8;
+    padding-left: 8px;
 }
 
 .footer-bottom {
     width: 100%;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
     text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #555;
-    padding-top: 15px;
+    font-size: 14px;
+    color: #cbd5e1;
 }
 
 

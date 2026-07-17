@@ -139,4 +139,30 @@ header{
     line-height: 1.6;
 }
 
+/* footer*/
+
+
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    background: #1e293b;
+    color: white;
+    padding: 30px;
+}
+
+.site-footer section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #555;
+    padding-top: 15px;
+}
+
 

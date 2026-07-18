@@ -1,16 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback &amp; Programme Directory | VITAL - SDG 3</title>
+<link rel="stylesheet" href="style.css">
+<!-- Page-specific embedded CSS: styling unique to this page only.
+     Does not redefine header/nav/card/footer rules already in the Global CSS. -->
+<style>
+  /* 1. Scrollable programme list container */
+  .programme-scroll{
+    max-height:520px;
+    overflow-y:auto;
+    padding:20px;
+    background:#e9f5ee;
+    border-radius:12px;
+    margin:20px;
+  }
+
+  /* 2. Sort dropdown bar above the scroll area */
+  .sort-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+  }
+  .sort-bar select{
+    padding:8px 12px;
+    border-radius:6px;
+    border:2px solid #0b72b5;
+    font-size:15px;
+  }
+
+  /* 3. Button hover effect for "Get Involved" buttons */
+  .prog-btn{
+    background:#0b72b5;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:background 0.25s ease, transform 0.2s ease;
+  }
+  .prog-btn:hover{
+    background:#38bdf8;
+    transform:translateY(-2px);
+  }
+
+  /* 4. Ratings summary block */
+  .ratings-summary{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:25px;
+    margin:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.1);
+  }
+  .ratings-summary .score{
+    font-size:48px;
+    font-weight:bold;
+    color:#0b72b5;
+  }
+
+  /* 5. Review cards row */
+  .reviews-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:0 20px 20px;
+  }
+  .review-card{
+    background:white;
+    border-left:5px solid #0b72b5;
+    border-radius:8px;
+    padding:16px;
+    width:280px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  /* 6. Form section spacing + fieldset styling */
+  .feedback-form fieldset{
+    border:2px solid #0b72b5;
+    border-radius:10px;
+    margin:20px;
+    padding:20px;
+  }
+  .feedback-form legend{
+    font-weight:bold;
+    color:#0b72b5;
+    padding:0 10px;
+  }
+  .feedback-form label{
+    display:block;
+    margin-top:14px;
+    font-weight:bold;
+  }
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea{
+    width:100%;
+    max-width:500px;
+    padding:8px;
+    margin-top:6px;
+    border-radius:6px;
+    border:1px solid #999;
+    font-family:inherit;
+  }
+
+  /* 7. Character counter and error text */
+  .char-counter{
+    font-size:13px;
+    color:#555;
+  }
+  .field-error{
+    color:#c0392b;
+    font-size:13px;
+    font-weight:bold;
+    margin-top:4px;
+    display:none;
+  }
+  #confirmationMsg{
+    display:none;
+    background:#e9f5ee;
+    border-left:6px solid #2e7d32;
+    padding:16px;
+    margin:20px;
+    border-radius:8px;
+    font-weight:bold;
+    color:#2e7d32;
+  }
+  .submit-btn{
+    margin:20px;
+  }
+</style>
 </head>
 <body>
- 
 
-    
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="VITAL website logo - a heart with a pulse line">
+      <h2>VITAL</h2>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </div>
+</header>
 
-    
-    
+<main>
+  <h1 style="text-align:center; padding:20px;">Programme Directory &amp; Feedback</h1>
+  <p style="text-align:center; padding:0 20px;">Browse local health initiatives connected to SDG 3, then tell us what you think.</p>
+
+  <div class="sort-bar">
+    <h3>Available Programmes</h3>
+    <label for="sortSelect">Sort by:
+      <select id="sortSelect">
+        <option>Most popular</option>
+        <option>Nearest</option>
+        <option>Student-friendly</option>
+      </select>
+    </label>
+  </div>
+
+  <section class="programme-scroll" aria-label="Scrollable list of health programmes">
+    <div class="cards-container">
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/run-club/350/220" alt="Group of students jogging together in a park">
+        <div class="card-body">
+          <h3>Campus Run Club</h3>
+          <p>A weekly beginner-friendly run for students who want an easy way to stay active.</p>
+          <button class="prog-btn">Get Involved</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/mind-lounge/350/220" alt="Quiet room with cushions used for a mindfulness session">
+        <div class="card-body">
+          <h3>Mindful Minutes</h3>
+          <p>Free 15-minute guided breathing sessions run between lectures to reduce stress.</p>
+          <button class="prog-btn">Join Session</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/health-checks/350/220" alt="Volunteer checking a person's blood pressure at a stall">
+        <div class="card-body">
+          <h3>Community Health Checks</h3>
+          <p>Free blood-pressure and general wellbeing checks run by student volunteers monthly.</p>
+          <button class="prog-btn">Learn More</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/food-share/350/220" alt="Volunteers packing fresh vegetables into boxes">
+        <div class="card-body">
+          <h3>Fresh Food Share</h3>
+          <p>A pantry initiative giving surplus fresh produce to students facing food insecurity.</p>
+          <button class="prog-btn">Get Involved</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="ratings-summary">
+    <div class="score">8.7/10</div>
+    <div>
+      <p style="padding:0; font-weight:bold;">Excellent - based on 42 reviews</p>
+      <p style="padding:4px 0 0;">Reviewers say these programmes are easy to join and genuinely helpful.</p>
+    </div>
+  </section>
+
+  <section class="reviews-row" aria-label="Individual programme reviews">
+    <div class="review-card">
+      <h4>Great way to start the day</h4>
+      <p>The run club got me out of bed for something other than lectures for once. <a href="#">See more</a></p>
+      <p style="font-size:13px; color:#555; margin-top:8px;">Amaya R. - 2 June 2026 - Rating: 9/10</p>
+    </div>
+    <div class="review-card">
+      <h4>Helped with exam stress</h4>
+      <p>Mindful Minutes fit perfectly into a 15-minute gap between classes. <a href="#">See more</a></p>
+      <p style="font-size:13px; color:#555; margin-top:8px;">Devin K. - 14 June 2026 - Rating: 8/10</p>
+    </div>
+    <div class="review-card">
+      <h4>Convenient and free</h4>
+      <p>Didn't expect a proper blood pressure check on campus, very useful. <a href="#">See more</a></p>
+      <p style="font-size:13px; color:#555; margin-top:8px;">Priya S. - 20 June 2026 - Rating: 9/10</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="padding:15px 20px 0;">Share Your Feedback</h2>
+    <form class="feedback-form" id="feedbackForm" novalidate>
+
+      <fieldset>
+        <legend>Personal Details</legend>
+
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+        <span class="field-error" id="err-fullName">Please enter your full name.</span>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        <span class="field-error" id="err-email">Please enter a valid email address.</span>
+
+        <label for="phone">Telephone Number</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]{7,15}">
+        <span class="field-error" id="err-phone">Please enter a valid phone number.</span>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+        <span class="field-error" id="err-address">Please enter your address.</span>
+      </fieldset>
+
+      <fieldset>
+        <legend>Feedback Details</legend>
+
+        <label for="programme">Which programme are you reviewing?</label>
+        <select id="programme" name="programme" required>
+          <option value="">-- Select a programme --</option>
+          <option>Campus Run Club</option>
+          <option>Mindful Minutes</option>
+          <option>Community Health Checks</option>
+          <option>Fresh Food Share</option>
+        </select>
+
+        <label for="visitDate">Date Attended</label>
+        <input type="date" id="visitDate" name="visitDate" required>
+
+        <label for="visitDateTime">Preferred Follow-up Slot</label>
+        <input type="datetime-local" id="visitDateTime" name="visitDateTime">
+
+        <label for="message">Your Comments</label>
+        <textarea id="message" name="message" rows="4" maxlength="250" required></textarea>
+        <span class="char-counter"><span id="charCount">250</span> characters remaining</span>
+        <span class="field-error" id="err-message">Please write a short comment (max 250 characters).</span>
+      </fieldset>
+
+      <button type="submit" class="prog-btn submit-btn">Send Feedback</button>
+    </form>
+
+    <div id="confirmationMsg" role="status">Thank you for your feedback! Your response has been recorded.</div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <section>
+    <h4>My Pages</h4>
+    <ul>
+      <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+      <li><a href="validation_ST3.html">Validation Page</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Student Details</h4>
+    <ul><li>Student 3 - Feedback &amp; Team Page</li></ul>
+  </section>
+  <section>
+    <h4>About VITAL</h4>
+    <ul><li>SDG 3: Good Health &amp; Well-being</li></ul>
+  </section>
+  <div class="footer-bottom">&copy; 2026 VITAL. All rights reserved.</div>
+</footer>
+
+<script>
+  // Live character counter for the comments textarea
+  const messageBox = document.getElementById('message');
+  const charCount = document.getElementById('charCount');
+  const maxChars = parseInt(messageBox.getAttribute('maxlength'), 10);
+
+  messageBox.addEventListener('input', function () {
+    const remaining = maxChars - messageBox.value.length;
+    charCount.textContent = remaining;
+  });
+
+  // JavaScript-enhanced form validation + submission confirmation
+  const form = document.getElementById('feedbackForm');
+  const confirmationMsg = document.getElementById('confirmationMsg');
+
+  function showError(fieldId, isInvalid) {
+    const errorEl = document.getElementById('err-' + fieldId);
+    if (errorEl) {
+      errorEl.style.display = isInvalid ? 'block' : 'none';
+    }
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let isValid = true;
+
+    const fullName = document.getElementById('fullName');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const address = document.getElementById('address');
+
+    if (fullName.value.trim() === '') { showError('fullName', true); isValid = false; }
+    else { showError('fullName', false); }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) { showError('email', true); isValid = false; }
+    else { showError('email', false); }
+
+    if (!phone.checkValidity()) { showError('phone', true); isValid = false; }
+    else { showError('phone', false); }
+
+    if (address.value.trim() === '') { showError('address', true); isValid = false; }
+    else { showError('address', false); }
+
+    if (messageBox.value.trim() === '') { showError('message', true); isValid = false; }
+    else { showError('message', false); }
+
+    if (isValid) {
+      confirmationMsg.style.display = 'block';
+      form.reset();
+      charCount.textContent = maxChars;
+    } else {
+      confirmationMsg.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>

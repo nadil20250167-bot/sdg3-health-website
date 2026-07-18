@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team | VITAL - SDG 3 Good Health &amp; Well-being</title>
+<link rel="stylesheet" href="style.css">
+<!-- Page-specific embedded CSS: only styles that are unique to the Team page.
+     These rules do not touch header/nav/footer/card styles already defined
+     in the shared global stylesheet, so they cannot conflict with it. -->
+<style>
+  /* 1. Layout grid for the four team member blocks */
+  .team-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:40px 20px;
+  }
+
+  /* 2. Individual team member block */
+  .team-member{
+    width:230px;
+    background:#ffffff;
+    border-radius:14px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.12);
+    text-align:center;
+    padding:20px;
+    outline:none;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    cursor:pointer;
+  }
+
+  /* 3. Hover / focus feedback on the whole block (mouse + keyboard) */
+  .team-member:hover,
+  .team-member:focus{
+    transform:translateY(-6px) scale(1.03);
+    box-shadow:0 14px 24px rgba(11,114,181,0.35);
+  }
+
+  /* 4. Visible focus ring for keyboard users (tabindex="0") */
+  .team-member:focus{
+    outline:3px solid #0b72b5;
+    outline-offset:3px;
+  }
+
+  /* 5. Thumbnail image styling + subtle hover shift */
+  .team-member img{
+    width:140px;
+    height:140px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #0b72b5;
+    margin-bottom:14px;
+    transition:opacity 0.25s ease;
+  }
+  .team-member:hover img{ opacity:0.85; }
+
+  /* 6. Expandable detail panel, collapsed by default */
+  .member-details{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    text-align:left;
+    font-size:15px;
+    line-height:1.4;
+    transition:max-height 0.4s ease, opacity 0.4s ease;
+  }
+
+  /* 7. Reveal the detail panel on hover/focus */
+  .team-member:hover .member-details,
+  .team-member:focus .member-details,
+  .team-member:focus-within .member-details{
+    max-height:220px;
+    opacity:1;
+    margin-top:12px;
+  }
+
+  .member-details h4{
+    padding:0 0 6px 0;
+    color:#0b72b5;
+    font-size:1rem;
+  }
+  .member-details ul{
+    padding-left:18px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="VITAL website logo - a heart with a pulse line">
+      <h2>VITAL</h2>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <h1 style="text-align:center; padding:20px;">Meet the VITAL Team</h1>
+  <p style="text-align:center; padding:0 20px 20px;">Hover or tab (keyboard) onto a team member to see their role and contribution.</p>
+
+  <section class="team-grid">
+
+    <div class="team-member" tabindex="0" aria-label="Team member: Student 1, Template and Home Page">
+      <img src="https://i.pravatar.cc/300?img=12" alt="Portrait of Student 1">
+      <h3>Student 1</h3>
+      <p>Template &amp; Home Page</p>
+      <div class="member-details">
+        <h4>Contribution</h4>
+        <ul>
+          <li>Built the shared HTML template and navigation bar</li>
+          <li>Wrote the Global CSS file</li>
+          <li>Implemented the Home Page and Gallery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="team-member" tabindex="0" aria-label="Team member: Student 2, Splash Screen and Action Impact Simulator">
+      <img src="https://i.pravatar.cc/300?img=32" alt="Portrait of Student 2">
+      <h3>Student 2</h3>
+      <p>Splash Screen &amp; AIS</p>
+      <div class="member-details">
+        <h4>Contribution</h4>
+        <ul>
+          <li>Designed the animated splash screen</li>
+          <li>Built the SDG Action Impact Simulator</li>
+          <li>Wrote the countdown/redirect JavaScript</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="team-member" tabindex="0" aria-label="Team member: Student 3, Feedback and Team page, this is me">
+      <img src="https://i.pravatar.cc/300?img=47" alt="Portrait of Student 3">
+      <h3>Student 3 (me)</h3>
+      <p>Feedback &amp; Team Page</p>
+      <div class="member-details">
+        <h4>Contribution</h4>
+        <ul>
+          <li>Built the Programme Directory and Feedback form</li>
+          <li>Designed this Team page</li>
+          <li>Coordinated meeting notes and contribution log</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="team-member" tabindex="0" aria-label="Team member: Student 4, User Profile and Sitemap">
+      <img src="https://i.pravatar.cc/300?img=15" alt="Portrait of Student 4">
+      <h3>Student 4</h3>
+      <p>Profile &amp; Sitemap</p>
+      <div class="member-details">
+        <h4>Contribution</h4>
+        <ul>
+          <li>Built the progressive User Profile page</li>
+          <li>Created the SVG sitemap</li>
+          <li>Tested keyboard accessibility across pages</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <section>
+    <h4>My Pages</h4>
+    <ul>
+      <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+      <li><a href="validation_ST3.html">Validation Page</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Student Details</h4>
+    <ul><li>Student 3 - Feedback &amp; Team Page</li></ul>
+  </section>
+  <section>
+    <h4>About VITAL</h4>
+    <ul><li>SDG 3: Good Health &amp; Well-being</li></ul>
+  </section>
+  <div class="footer-bottom">&copy; 2026 VITAL. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

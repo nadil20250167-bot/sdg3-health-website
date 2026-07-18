@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student 1 — Editor</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #Editorid{
+
+            padding: 18px;
+            margin: 8px;
+            line-height: 1.5;
+
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -55,19 +64,57 @@
   <section id="template">
     <h2>Shared Template &amp; Global CSS</h2>
     <p><a href="home.html" target="_blank" rel="noopener">Open a live page using the template &rarr;</a> |
-       <a href="validation_ST1.html#template">See validation evidence &rarr;</a></p>
+       <a href="validation_ST1.html">See validation evidence &rarr;</a></p>
 
     <h3>HTML Structure</h3>
-    <p>[Explain the semantic elements used: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;,
-       and why they were chosen for structure and accessibility.]</p>
+
+    <p>&lt;header&gt; is Represents introductory content for a page or section — typically containing the site logo, title, and main navigation. 
+        Unlike a generic &lt;div&gt; , it tells both browsers and assistive technology "this is the top/intro area of the content," 
+        so screen readers can let users jump straight to it.</p>
+
+        <p>&lt;nav&gt; is Wraps major navigation links (menus, tables of contents, breadcrumbs). 
+            Screen readers announce it as a "navigation landmark," letting users jump straight to menus without reading through unrelated content.</p>
+
+            <p> &lt;main&gt; is Contains the primary, unique content of the page — excludes repeated elements like headers, footers, or sidebars. 
+                There should only be one &lt;main&gt; per page. It helps screen readers skip directly to the core content.</p>
+
+                <p> &lt;footer&gt; is Holds closing information — copyright, contact details, related links. Usually appears at the bottom of a page or section.</p>
+
+                <h4>Why these were chosen (structure + accessibility)</h4>
+
+                <ul id="Editorid">
+
+                    <li>Better structure for developers</li>
+                    <li>Accessibility (screen readers) </li>
+                    <li>SEO benefits </li>
+                    <li>Consistent browser behavior</li>
+                </ul>
+
+
 
     <h3>CSS Techniques</h3>
-    <p>[Explain the layout approach used for the header/footer (e.g. Flexbox for the nav bar, CSS Grid for
-       the footer columns), and the design tokens defined as CSS custom properties.]</p>
+    <p><strong>Layout Approach:</strong> The navigation bar (<code>.navbar</code>) uses <strong>Flexbox</strong> (<code>display: flex</code>) with (<code>justify-content: space-between</code>) and (<code>align-items: center</code>). 
+        This was chosen because the navbar is a one-dimensional layout — the logo sits on one side and the navigation links on the other — and Flexbox distributes these two groups across the row automatically, 
+        while vertically centering them regardless of their height.
+
+        <p>The footer (<code>.site-footer</code>) also uses <strong>Flexbox</strong> (<code>display: flex; flex-wrap: wrap;</code>) rather than CSS Grid. Each footer (<code>section</code>) is set to (<code>flex: 1</code>) with a (<code>min-width</code>), allowing columns to grow evenly and wrap onto a new row on smaller screens. 
+            Flexbox was sufficient here because the number of footer columns is small and consistent, so a full two-dimensional grid system wasn't necessary — Flexbox achieves the same responsive, 
+            evenly-spaced column layout with simpler code.</p>
 
     <h3>Design &amp; Implementation Rationale</h3>
-    <p>[Explain why this colour palette / typography / spacing was chosen, and how it supports usability
-       and consistency across every page in the site.]</p>
+    <p><strong>Colour Palette:</strong> The site uses a blue-based palette (<code>#0077c0</code>, <code>#0b72b5</code>) for the header, navigation bar, and section headings, 
+        paired with a soft light-green background (<code>#F1F8F4</code>) for the body. Blue was chosen because it conveys trust, professionalism, and calmness — fitting for
+         a student wellbeing/university-related site — while the pale green background keeps the page feeling light and easy on the eyes rather than stark white. Accent colours on the topic tiles (green, orange, teal, navy) are used sparingly to differentiate categories without overwhelming the overall calm tone. Using the same blue consistently across the navbar, 
+         headings, and links (rather than introducing new colours per page) creates visual consistency, so users immediately recognise interactive elements (like links) no matter which page they're on.</p>
+<p><strong>Typography:</strong> The site uses <code>'Times New Roman', Times, serif</code> as the primary font-family across the body, headings, and footer.
+ A serif font was chosen to give the content a formal, readable, academic tone, appropriate for an educational/university context. Using one consistent font-family site-wide (rather than mixing fonts per section) ensures visual harmony 
+ and avoids the inconsistent, unpolished look that comes from multiple competing typefaces.</p>
+<p><strong>Spacing:</strong> Consistent padding and margin values (e.g. <code>padding: 40px 20px;</code> on card containers,
+ <code>margin-bottom: 2.5rem;</code> on sections) are used throughout the site to create even breathing room between elements. 
+ This consistent spacing rhythm prevents content from feeling cramped or cluttered, and helps visually separate distinct sections (like the hero, cards, and topic gallery) without needing extra borders or dividers.</p>
+<p><strong>Usability & Consistency:</strong> Because the same colours, font, and spacing patterns are reused across every page and component (navbar, cards, footer, tables, forms), 
+users experience a predictable, cohesive interface. This reduces cognitive load — visitors don't need to re-learn how to navigate or read content as they move between pages, since buttons, links, and headings always look and behave the same way. 
+Consistent spacing also improves accessibility, giving elements enough clickable/tappable area and making text easier to scan and read.</p>
   </section>
 
   <!-- ===== 3. Home Page ===== -->
@@ -77,16 +124,27 @@
        <a href="validation_ST1.html#home">See validation evidence &rarr;</a></p>
 
     <h3>HTML Structure</h3>
-    <p>[Describe use of &lt;section&gt;, &lt;article&gt; for the mission cards, and how the topic gallery
-       is structured.]</p>
+    <p>The mission cards are wrapped in <code>&lt;article&gt;</code> tags because each card (e.g. "Move Every Day," "Sleep Matters") is a standalone piece of content with its own heading, text, and list — it would still make sense on its own if moved elsewhere. They sit inside a <code>&lt;section&gt;</code>, 
+        which groups them together as one themed part of the page.</p>
+
+        <p>The topic gallery is structured similarly — a <code>section</code> containing clickable tiles. Each tile has a heading and short text, but since its main job is to link to another topic/page (not present standalone content),
+             it's wrapped in an (<code>a</code>) tag instead of (<code>article</code>).</p>
+
+                <p>Using these semantic tags instead of plain <code>div</code>s makes the page easier to understand for both browsers and screen readers, 
+                    and helps organise the content logically.</p>
 
     <h3>CSS Techniques</h3>
-    <p>[Describe the CSS Grid used for the card layout and topic gallery, plus the embedded page-specific
-       CSS and what it does.]</p>
+    <p>The card layout (<code>.cards-container</code>) and topic gallery (<code>.topic-gallery</code>) both use <strong>Flexbox</strong> (<code>display: flex; flex-wrap: wrap;</code>) rather than CSS Grid. This allows the cards/tiles to sit side-by-side and automatically wrap onto a new row when there isn't enough space, making the layout responsive across different screen sizes.
+         A (<code>gap</code>) property adds even spacing between items without needing extra margins.</p>
+         <p>The embedded page-specific CSS includes styles like (<code>.card</code>), (<code>.card-body</code>), and (<code>.topic-tile</code>), which control the look of individual cards and tiles — for example, rounded corners (<code>border-radius</code>), shadows (<code>box-shadow</code>), hover animations (<code>transform: translateY(-8px)</code>), and different background colours for each topic tile. These styles are specific to this page's components, 
+            unlike the global styles (navbar, footer) which apply site-wide.</p>
 
     <h3>Design &amp; Implementation Rationale</h3>
-    <p>[Explain choices, e.g. why cards were used to present mission content, and how the interactive
-       gallery supports navigation to content pages.]</p>
+    <p>Cards were used to present the mission content because they break information into small, scannable chunks — each card focuses on one topic (like sleep, stress, or movement) with a heading, short description, and list of tips. 
+        This is easier for users to read than one long block of text, and lets them quickly find the topic that's relevant to them.</p>
+
+        <p>The interactive gallery supports navigation by turning each topic into a clickable tile that links to its own content page. Hover effects (like lifting up slightly with a shadow) give users visual feedback that the tile is clickable, making it clear this is a navigation element rather than just decoration. This makes it faster for users to explore the site, 
+            since they can jump directly to the topic they're interested in from one central gallery instead of digging through menus.</p>
   </section>
 
   <!-- ===== 4. Gallery Page ===== -->
@@ -103,8 +161,7 @@
        colour/font customisation controls work with classList.]</p>
 
     <h3>Design &amp; Implementation Rationale</h3>
-    <p>[Explain why a modal was chosen over an inline expansion, and how keyboard accessibility (Enter/
-       Space, Escape) was addressed.]</p>
+    
   </section>
 
   <!-- ===== 5. Content Page ===== -->
@@ -114,14 +171,26 @@
        <a href="validation_ST1.html#content">See validation evidence &rarr;</a></p>
 
     <h3>HTML Structure</h3>
-    <p>[Describe the heading hierarchy (h1&ndash;h3), the internal anchor navigation, and the
-       fixed-position "Go to Top" link.]</p>
+    <p>The page uses a clear heading hierarchy: <code>&lt;h1&gt;</code> for the main page title (e.g. "Sleep & Mental Wellbeing"), <code>&lt;h2&gt;</code> for major section titles (e.g. "Introduction," "Tips for Better Sleep"), and <code>&lt;h3&gt;</code> for smaller sub-topics within cards or tiles (e.g. "Move Every Day"). This structure helps both users and screen readers understand the page's organisation at a glance, 
+        since headings act like a table of contents.</p>
+        <p>Internal anchor navigation is used in the "On this page" bar, where each link (e.g. <code>#introduction</code>, <code>#schedule</code>) jumps directly to its matching section using the section's <code>id</code>. 
+            This lets users skip straight to the part of the page they want, instead of scrolling through everything.</p>
+
+            <p>A fixed-position "Go to Top" link stays visible in the corner of the screen as the user scrolls down, using <code>position: fixed</code>. Clicking it smoothly scrolls the page back to the top, 
+                making it easier to navigate long pages without manually scrolling all the way back up.</p>
 
     <h3>CSS Techniques</h3>
-    <p>[Describe how position: fixed was used for the Go-to-Top button and how images were framed.]</p>
+    <p>The "Go to Top" button uses <code>position: fixed</code> so it stays in the same spot on the screen (e.g. bottom-right corner) no matter how far the user scrolls down the page. This is combined with values like <code>bottom</code> and <code>right</code> to pin it in place, and a high <code>z-index</code> to make sure it stays on top of other content rather than being hidden behind it. Clicking the button scrolls the page back to the top, 
+        which is helpful on long pages so users don't have to manually scroll all the way back up.</p>
+        <p>Images were framed using <code>border-radius</code> to soften their corners and <code>box-shadow</code> to give them a subtle lifted, card-like appearance. This makes images feel more polished and consistent with the rounded, card-based style used elsewhere on the site (like the mission cards), 
+            rather than looking like plain, flat rectangles.</p>
 
     <h3>Design &amp; Implementation Rationale</h3>
-    <p>[Explain how the content was structured to be scannable and how sources were chosen.]</p>
+    <p>Content was structured to be scannable by breaking information into short sections with clear headings, bullet-point lists, and cards rather than long paragraphs. Important terms (like "Date," "Time," or key tips) are bolded or emphasised so users can quickly spot key information without reading every word. Short paragraphs and lists make it easy for users to skim the page and find the specific topic they need (e.g. sleep, stress, nutrition) 
+        instead of reading everything from top to bottom.</p>
+
+        <p>Sources were chosen based on credibility and relevance to student health — prioritising reputable organisations (e.g. university health services, government health guidelines, or established health bodies) over unofficial or unverified websites. This ensures the advice given (e.g. sleep recommendations, stress management tips) is accurate,
+             trustworthy, and appropriate for a student audience.</p>
   </section>
 
   <!-- ===== 6. Challenges ===== -->
@@ -135,17 +204,28 @@
   <!-- ===== 7. Accessibility ===== -->
   <section id="accessibility">
     <h2>Accessibility Considerations</h2>
-    <p>[Explain the specific techniques you used: alt text on every image, semantic landmarks, visible
-       focus states on interactive gallery items, keyboard support for the modal (Tab, Enter, Escape),
-       and colour contrast in the palette.]</p>
+    <p>Another challenge I encountered was that my card layout wasn't behaving the way I expected — I had set a fixed <code>height: 700px</code> on my <code>.card</code> class, but the cards were displaying at different heights depending on their content, as if the fixed height wasn't being applied at all. After checking my stylesheet more closely, I realised I had accidentally defined <code>.card</code> twice — once earlier in the file with <code>height: 700px</code>, and again further down without a height set. Since CSS applies the last matching rule when there's a conflict, 
+        the second definition was silently overriding the first, so my fixed height was never actually being used.</p>
+
+        <p>To fix this, I removed the duplicate rule and kept only one <code>.card</code> definition,
+             deciding whether or not I actually wanted a fixed height based on how the content looked.</p>
+
+             <p>From this, I learned to be more careful about accidentally repeating the same class name in a stylesheet, 
+                especially in longer CSS files where it's easy to forget a rule already exists further up. It also taught me that CSS follows a "last rule wins" order for
+                 conflicting properties, which is an easy thing to overlook when debugging why a style isn't applying.</p>
   </section>
 
   <!-- ===== 8. Compliance ===== -->
   <section id="compliance">
     <h2>Compliance with JANET Regulations</h2>
-    <p>[Explain how your pages comply with JANET's Acceptable Use Policy — e.g. all content is original
-       or properly attributed, no offensive/illegal material is published, and external resources
-       (royalty-free images, fonts) are correctly referenced.]</p>
+    <p>My pages comply with JANET's Acceptable Use Policy in several ways. All written content on the site is my own original work, and any information based on external sources (such as health or wellbeing guidance) has been reworded in my own words rather than copied directly, avoiding plagiarism or copyright issues. The site does not contain any offensive, illegal, discriminatory, 
+        or inappropriate material — all content is appropriate for an educational context and focused on student health and wellbeing.</p>
+
+        <p>Any images used on the site are either provided as part of the assignment (e.g. sleep well.jpg) or sourced from royalty-free/free-to-use image libraries, rather than taken from copyrighted sources without permission. Where external resources like fonts or icons are used, they are either standard web-safe fonts (e.g. Times New Roman) that don't require licensing, 
+            or properly linked/attributed according to their usage terms.</p>
+
+            <p>Overall, the site avoids publishing anything that could be considered harmful, unlawful, or in breach of copyright, and keeps all content suitable for an academic and university network environment, 
+                in line with JANET's policy on responsible and lawful use of network resources.</p>
   </section>
 
 

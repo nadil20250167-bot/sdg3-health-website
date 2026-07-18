@@ -25,6 +25,11 @@ p{
  h2{
         padding: 15px;
  }
+
+ h4{
+        padding: 15px;
+ }
+ 
 header{
     background-color: #0077c0;
     padding: 25px;
@@ -288,18 +293,13 @@ th,td{
     padding: 15px;
     text-align: center;
     margin:20px;
-    
-
-}
-
+    }
 th{
     background-color:#0b72b5 ;
 }
 tr{
     font-weight: bold;
 }
-
-
 tr:hover {
     background-color: grey;
 }

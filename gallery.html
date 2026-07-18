@@ -145,18 +145,106 @@
         </header>
 
         <main>
-            <section>
+        
                 <h1>Gallery of Healthy Habits</h1>
      <p>Click any thumbnail below to learn more about that habit. Inside each expanded view you can also
       customise the colour scheme and font style used to display the information.</p>
 
+      <section class="gallery-grid" id="galleryGrid">
+
+    <article class="gallery-item" tabindex="0"
+         data-title="Walking &amp; Movement"
+         data-img="images/gallery-walk.svg"
+         data-desc="A brisk 20-minute walk improves circulation, mood, and concentration. It's one of the simplest, most accessible forms of exercise for busy students — no equipment or gym membership required.">
+      
+      <img src="i#" alt="Illustration of a person walking">
+      <p class="gallery-caption">Walking &amp; Movement</p>
+
+    </article>
+
+
+    <article class="gallery-item" tabindex="0"
+         data-title="Meditation &amp; Mindfulness"
+         data-img="images/gallery-meditate.svg"
+         data-desc="Just five minutes of mindful breathing can lower cortisol levels and help reset focus during a stressful revision day. Many universities offer free guided sessions in the student wellbeing centre.">
+      
+      <img src="#" alt="Illustration of a person meditating">
+      <p class="gallery-caption">Meditation &amp; Mindfulness</p>
+
+    </article>
+
+
+    <article class="gallery-item" tabindex="0"
+         data-title="Balanced Nutrition"
+         data-img="images/gallery-food.svg"
+         data-desc="A plate built around vegetables, whole grains and lean protein supports steady energy throughout long lecture days, and is far cheaper than relying on convenience food.">
+      
+      <img src="#" alt="Illustration of a balanced meal">
+      <p class="gallery-caption">Balanced Nutrition</p>
+
+    </article>
+
+
+    <article class="gallery-item" tabindex="0"
+         data-title="Restorative Sleep"
+         data-img="images/gallery-sleep.svg"
+         data-desc="Consistent sleep timing — even on weekends — improves memory consolidation and emotional regulation, both of which are essential for effective studying.">
+      
+      <img src="#" alt="Illustration of a crescent moon representing sleep">
+      <p class="gallery-caption">Restorative Sleep</p>
+
+    </article>
+
+</section>
+
+
+<!-- Modal -->
+<dialog id="galleryModal" class="gallery-modal">
+
+    <button id="modalClose" class="modal-close" aria-label="Close details">
+        &times;
+    </button>
+
+    <img id="modalImg" src="" alt="">
+
+    <h2 id="modalTitle"></h2>
+
+    <p id="modalDesc"></p>
+
+
+    <section class="modal-controls">
+
+        <label for="colourSelect">Colour scheme:</label>
+
+        <select id="colourSelect">
+            <option value="teal">Teal (default)</option>
+            <option value="amber">Amber</option>
+            <option value="navy">Navy</option>
+        </select>
+
+
+        <label for="fontSelect">Font style:</label>
+
+        <select id="fontSelect">
+            <option value="rounded">Rounded (default)</option>
+            <option value="serif">Serif</option>
+            <option value="mono">Monospace</option>
+        </select>
+
+    </section>
+
+</dialog>
 
 
 
 
 
 
-            </section>
+
+
+
+
+            
 
 
 
@@ -245,21 +333,87 @@
 
 </dialog>
 
-
 <script>
-const modal = document.getElementById("galleryModal");
-const colourPicker = document.getElementById("colourPicker");
+  const galleryItems = document.querySelectorAll(".gallery-item");
+  const modal = document.getElementById("galleryModal");
+  const modalBox = document.querySelector(".modal-box");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const closeBtn = document.getElementById("modalClose");
+  const colourSelect = document.getElementById("colourSelect");
+  const fontSelect = document.getElementById("fontSelect");
 
-modal.showModal();
+  // Open modal
+  function openModal(item) {
+    modalImg.src = item.dataset.img;
+    modalImg.alt = item.dataset.title;
+    modalTitle.textContent = item.dataset.title;
+    modalDesc.textContent = item.dataset.desc;
 
-document.getElementById("modalClose").addEventListener("click", () => {
-    modal.close();
-});
+    modal.removeAttribute("hidden");
+  }
 
-colourPicker.addEventListener("input", function () {
-    modal.style.backgroundColor = this.value;
-});
+  // Close modal
+  function closeModal() {
+    modal.setAttribute("hidden", "");
+  }
+
+  // Open by click or keyboard
+  galleryItems.forEach(item => {
+    item.addEventListener("click", () => openModal(item));
+
+    item.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(item);
+      }
+    });
+  });
+
+  // Close button
+  closeBtn.addEventListener("click", closeModal);
+
+  // Close when clicking outside the modal box
+  modal.addEventListener("click", e => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close with Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !modal.hasAttribute("hidden")) {
+      closeModal();
+    }
+  });
+
+  // Colour theme
+  colourSelect.addEventListener("change", () => {
+    modalBox.classList.remove("theme-amber", "theme-navy");
+
+    if (colourSelect.value === "amber") {
+      modalBox.classList.add("theme-amber");
+    } else if (colourSelect.value === "navy") {
+      modalBox.classList.add("theme-navy");
+    }
+  });
+
+  // Font style
+  fontSelect.addEventListener("change", () => {
+    modalBox.classList.remove("font-serif", "font-mono");
+
+    if (fontSelect.value === "serif") {
+      modalBox.classList.add("font-serif");
+    } else if (fontSelect.value === "mono") {
+      modalBox.classList.add("font-mono");
+    }
+  });
 </script>
+
+
+
+
     
     
 </body>

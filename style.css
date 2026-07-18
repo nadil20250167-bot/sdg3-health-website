@@ -278,3 +278,33 @@ header{
         text-decoration: underline;
 }
 
+/* meeting log.*/
+
+.meeting-log,
+th,td{
+
+    border: 3px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: center;
+    margin:20px;
+    
+
+}
+
+th{
+    background-color:#0b72b5 ;
+}
+tr{
+    font-weight: bold;
+}
+
+
+tr:hover {
+    background-color: grey;
+}
+
+
+
+
+

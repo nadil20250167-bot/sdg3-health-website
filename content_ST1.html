@@ -51,6 +51,31 @@
 
     }
 
+    .go-top{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #0b72b5;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.go-top:hover{
+    background: #0077c0;
+}
+
+.content-section{
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 
    
     
@@ -64,7 +89,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="up">
     
     <nav class="navbar">
 
@@ -103,7 +128,7 @@
     </ul>
   </nav>
 
-  <section id="intro">
+  <section class="content-section" id="intro">
 
     <h2 class="in">Introduction</h2>
     <p>When people think about "good health," sleep rarely gets the same attention as diet or exercise —
@@ -113,7 +138,7 @@
     <img src="images/sleep_well.jpg" class="framed-img" alt="Illustration of a bed under a night sky, representing rest">
   </section>
 
-  <section id="why-matters">
+  <section class="content-section" id="why-matters">
     <h2 class="in">Why Sleep Matters</h2>
     <p>During sleep, the brain consolidates memories formed during the day, clears metabolic waste
        products, and regulates hormones linked to stress and appetite. For students, this directly
@@ -125,7 +150,7 @@
     <img src="images/stac.jpg" class="framed-img" alt="Illustration of a clock representing consistent sleep timing">
   </section>
 
-      <section id="effects">
+      <section class="content-section" id="effects">
     <h2 class="in">Effects of Poor Sleep on Mental Wellbeing</h2>
     <ol id="list">
       <li><strong>Mood regulation:</strong> Sleep-deprived individuals report higher irritability and
@@ -138,7 +163,7 @@
     <img src="images/overview.jpg" class="framed-img" alt="Illustration of bar charts representing declining wellbeing metrics">
   </section>
 
-  <section id="tips">
+  <section class="content-section" id="tips">
     <h2 class="in">Practical Tips for Better Sleep</h2>
     <h3 class="hnew">Before Bed</h3>
     <p>Reducing screen brightness and avoiding caffeine in the evening are two of the most effective,
@@ -149,7 +174,7 @@
     <img src="images/bedtime.jpg" class="framed-img" alt="Illustration of a checklist representing a bedtime routine">
   </section>
 
-  <section id="resources">
+  <section class="content-section" id="resources">
     <h2 class="in">Support &amp; Resources</h2>
     <p>If sleep difficulties are affecting daily life or mood for an extended period, speaking with a
        GP or a university wellbeing service is a reasonable and encouraged next step — persistent sleep
@@ -164,6 +189,7 @@
 
 
         </main>
+        <a class="go-top" href="#up">Top &uarr;</a>
 
         <footer class="site-footer">
 

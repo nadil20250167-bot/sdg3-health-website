@@ -113,11 +113,46 @@ section h2 {
 }
 
 /* Subtitle */
-.topic-tile p {
-    font-size: 1.2rem;
-    margin: 0;
-    color: rgba(255,255,255,0.9);
+
+.cards-section{
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
+
+.vertical-title{
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgba(186, 28, 28, 0.4);
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    text-transform: uppercase;
+    
+    
+   transform: translateY(800px);
+   transition: all 0.5s ease; 
+}
+
+.vertical-title:hover{
+ 
+  color: rgba(186, 28, 28, 1); /* ADD THIS */
+    transform: translateY(780px); /* ADD THIS */
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -162,15 +197,17 @@ section h2 {
 <h2 id="main">Actions You Can Take</h2>
 
 <div class="cards-container">
-  
-  
+
+  <div class="vertical-title left-text">
+    YOUR HEALTH MATTERS
+</div>
 
 
-
- <article class="card">
+   <article class="card">
         <img src="images/Move_every_day.jpg" alt="Illustration of a person walking and stretching outdoors">
         <div class="card-body">
-          <h3>Move Every Day</h3>
+          <h3>Protect Your Mind</h3>
+          
           <p>Physical inactivity is one of the leading risk factors for preventable illness among students,
              who often spend long hours sitting in lectures or studying. A short daily walk or stretch break
              can measurably lower stress and improve concentration.</p>
@@ -182,9 +219,11 @@ section h2 {
         </div>
       </article>
       
-     
 
-      <article class="card">
+
+      
+      
+     <article class="card">
         <img src="images/Protect_mind.jpg" alt="Illustration of a calm mind represented by a glowing brain icon">
         <div class="card-body">
           <h3>Protect Your Mind</h3>
@@ -198,6 +237,7 @@ section h2 {
           </ul>
         </div>
       </article>
+      
 
       <article class="card">
         <img src="images/gpt-image-2_Create_an_ultra-realistic_high-resolution_image_of_a_healthy_young_adult_smiling-0.jpg" alt="Illustration of fruit and vegetables on a plate">

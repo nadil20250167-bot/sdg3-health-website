@@ -22,97 +22,7 @@
   font-size: 20px;
 }
 
-/* Card */
-.card {
-    width: 350px;
-    height: 700px;
-    display: flex;
-    flex-direction: column;   /* image stacks on top of text */
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-}
-
-/* Image */
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;        /* fills the box, crops instead of shrinking */
-    object-position: center;  /* adjust to e.g. "center 30%" if a subject gets cropped */
-    display: block;
-}
-
-/* Card Content */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    padding: 40px 20px;
-}
-
-.card {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-}
-
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-}
-
-.card-body {
-    padding: 25px;
-}
-
-.card-body h3 {
-    color: #0b72b5;
-    font-size: 32px;
-    margin-bottom: 20px;
-    border-bottom: 5px solid #0b72b5;
-    
-}
-
-.card-body p {
-    color: black;
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.card-body ul {
-    padding-left: 25px;
-}
-
-.card-body li {
-    margin-bottom: 12px;
-    font-size: 18px;
-    line-height: 1.4;
-    font-weight: bold;
-    list-style-type:square;
-    color:dimgrey;
-}
 /* Section */
 section {
     max-width: 1400px;
@@ -195,6 +105,8 @@ section h2 {
     margin: 0;
     color: rgba(255,255,255,0.9);
 }
+
+
 
 </style>
 </head>
@@ -280,6 +192,22 @@ section h2 {
           </ul>
         </div>
       </article>
+
+      <article class="card">
+  <img src="#" alt="Illustration of a student taking a break from a laptop and phone">
+  <div class="card-body">
+   
+    <h3>Limit Screen Time</h3>
+    <p>Between lectures, assignments, and social media, students often spend most of their waking 
+       hours in front of a screen. Excessive screen use  especially late at night — is linked to 
+       eye strain, disrupted sleep, and increased anxiety, making it harder to focus and unwind.</p>
+    <ul>
+      <li>Take a 5-minute screen break every hour while studying.</li>
+      <li>Turn on "night mode" or reduce blue light in the evening.</li>
+      <li>Set a daily limit for non-academic social media use.</li>
+    </ul>
+  </div>
+</article>
 
       </div>
 

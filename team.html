@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team | VITAL - SDG 3 Good Health &amp; Well-being</title>
+<title>Team | PULSE - SDG 3 Good Health &amp; Well-being</title>
 <link rel="stylesheet" href="style.css">
 <!-- Page-specific embedded CSS: only styles that are unique to the Team page.
      These rules do not touch header/nav/footer/card styles already defined
@@ -56,6 +56,15 @@
   }
   .team-member:hover img{ opacity:0.85; }
 
+  /* Member name heading - sized explicitly since it moved from h3 to h2
+     for correct heading order (h1 -> h2 -> h3, no skipped levels) */
+  .team-member h2{
+    font-size:1.3rem;
+    padding:0;
+    margin-bottom:4px;
+    color:#0b72b5;
+  }
+
   /* 6. Expandable detail panel, collapsed by default */
   .member-details{
     max-height:0;
@@ -76,7 +85,7 @@
     margin-top:12px;
   }
 
-  .member-details h4{
+  .member-details h3{
     padding:0 0 6px 0;
     color:#0b72b5;
     font-size:1rem;
@@ -91,12 +100,12 @@
 <header>
   <div class="navbar">
     <div class="logo">
-      <img src="images/better-health.png" alt=" website logo - a heart with a pulse line">
-      <h2>Batter Health And Well Being</h2>
+      <img src="images/logo.png" alt="PULSE website logo - a heart with a pulse line">
+      <h2>PULSE</h2>
     </div>
     <ul class="nav-links">
       <li><a href="home.html">Home</a></li>
-      <li><a href="ais.html">Simulator</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="profile.html">Profile</a></li>
       <li><a href="feedback.html">Feedback</a></li>
@@ -107,17 +116,17 @@
 </header>
 
 <main>
-  <h1 style="text-align:center; padding:20px;">Meet the VITAL Team</h1>
+  <h1 style="text-align:center; padding:20px;">Meet the PULSE Team</h1>
   <p style="text-align:center; padding:0 20px 20px;">Hover or tab (keyboard) onto a team member to see their role and contribution.</p>
 
   <section class="team-grid">
 
-    <div class="team-member" tabindex="0" aria-label="Team member: Student 1, Template and Home Page">
-      <img src="https://i.pravatar.cc/300?img=12" alt="Portrait of Student 1">
-      <h3>Student 1</h3>
+    <div class="team-member" tabindex="0" role="group" aria-label="Team member: Nadil Sansana Athuraliya, Template and Home Page">
+      <img src="https://i.pravatar.cc/300?img=12" alt="Portrait of Nadil Sansana Athuraliya">
+      <h2>Nadil Sansana Athuraliya</h2>
       <p>Template &amp; Home Page</p>
       <div class="member-details">
-        <h4>Contribution</h4>
+        <h3>Contribution</h3>
         <ul>
           <li>Built the shared HTML template and navigation bar</li>
           <li>Wrote the Global CSS file</li>
@@ -126,12 +135,12 @@
       </div>
     </div>
 
-    <div class="team-member" tabindex="0" aria-label="Team member: Student 2, Splash Screen and Action Impact Simulator">
-      <img src="https://i.pravatar.cc/300?img=32" alt="Portrait of Student 2">
-      <h3>Student 2</h3>
+    <div class="team-member" tabindex="0" role="group" aria-label="Team member: Malki Ovindi, Splash Screen and Action Impact Simulator">
+      <img src="https://i.pravatar.cc/300?img=32" alt="Portrait of Malki Ovindi">
+      <h2>Malki Ovindi</h2>
       <p>Splash Screen &amp; AIS</p>
       <div class="member-details">
-        <h4>Contribution</h4>
+        <h3>Contribution</h3>
         <ul>
           <li>Designed the animated splash screen</li>
           <li>Built the SDG Action Impact Simulator</li>
@@ -140,12 +149,12 @@
       </div>
     </div>
 
-    <div class="team-member" tabindex="0" aria-label="Team member: Student 3, Feedback and Team page, this is me">
-      <img src="https://i.pravatar.cc/300?img=47" alt="Portrait of Student 3">
-      <h3>Student 3 </h3>
+    <div class="team-member" tabindex="0" role="group" aria-label="Team member: Nimsara Rajapakse, Feedback and Team page, this is me">
+      <img src="https://i.pravatar.cc/300?img=47" alt="Portrait of Nimsara Rajapakse">
+      <h2>Nimsara Rajapakse (me)</h2>
       <p>Feedback &amp; Team Page</p>
       <div class="member-details">
-        <h4>Contribution</h4>
+        <h3>Contribution</h3>
         <ul>
           <li>Built the Programme Directory and Feedback form</li>
           <li>Designed this Team page</li>
@@ -154,12 +163,12 @@
       </div>
     </div>
 
-    <div class="team-member" tabindex="0" aria-label="Team member: Student 4, User Profile and Sitemap">
-      <img src="https://i.pravatar.cc/300?img=15" alt="Portrait of Student 4">
-      <h3>Student 4</h3>
+    <div class="team-member" tabindex="0" role="group" aria-label="Team member: Thisath Munasinghe Samarawickrama, User Profile and Sitemap">
+      <img src="https://i.pravatar.cc/300?img=15" alt="Portrait of Thisath Munasinghe Samarawickrama">
+      <h2>Thisath Munasinghe Samarawickrama</h2>
       <p>Profile &amp; Sitemap</p>
       <div class="member-details">
-        <h4>Contribution</h4>
+        <h3>Contribution</h3>
         <ul>
           <li>Built the progressive User Profile page</li>
           <li>Created the SVG sitemap</li>
@@ -181,13 +190,13 @@
   </section>
   <section>
     <h4>Student Details</h4>
-    <ul><li>Student 3 - Feedback &amp; Team Page</li></ul>
+    <ul><li>Nimsara Rajapakse - Feedback &amp; Team Page</li></ul>
   </section>
   <section>
-    <h4>About VITAL</h4>
+    <h4>About PULSE</h4>
     <ul><li>SDG 3: Good Health &amp; Well-being</li></ul>
   </section>
-  <div class="footer-bottom">&copy; 2026 VITAL. All rights reserved.</div>
+  <div class="footer-bottom">&copy; 2026 PULSE. All rights reserved.</div>
 </footer>
 
 </body>

@@ -272,9 +272,15 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   <!-- ===== 6. Challenges ===== -->
   <section class="content" id="challenges">
     <h2 class="size">Challenges and Lessons Learned</h2>
-    <p>[Describe at least one technical or design challenge you personally encountered, how you resolved
-       it, and what you learned. E.g. keeping page-specific embedded CSS from conflicting with the global
-       stylesheet, or making the gallery modal keyboard-accessible.]</p>
+    <p>One challenge I ran into was that my gallery modal's colour and font controls stopped working after I changed the modal's HTML structure. 
+        I had switched from a <code>&lt;div&gt;</code> with a <code>hidden</code> attribute to a <code>&lt;dialog&gt;</code> element, but forgot to update the JavaScript to match, 
+        so it was still trying to open/close the modal using <code>hidden</code>, which doesn't work on <code>&lt;dialog&gt;</code>. My <code>modalBox</code> variable was also pointing to a class that no longer existed, so it returned <code>null</code> and broke the colour/font dropdowns.</p>
+
+<p>I fixed this by checking the browser console, which showed the error, and then updated the JavaScript to match my HTML — using <code>showModal()</code> and <code>close()</code> instead of the <code>hidden</code> attribute, 
+    and correcting the class name for <code>modalBox</code>.</p>
+
+<p>From this, I learned to check the console when something isn't working, and that changing HTML structure often means the JavaScript 
+    needs to be updated too, not left as it was before.</p>
   </section>
 
   <!-- ===== 7. Accessibility ===== -->
@@ -326,8 +332,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
   <section class="content" id="references">
     <h2 class="size">References</h2>
-    <p>[List every resource consulted, e.g. lecture notes, MDN Web Docs, W3Schools, royalty-free image
-       sources. Use a consistent style, e.g.:]</p>
+    
     <ul id="change">
       <li>MDN Web Docs (2025) CSS: Cascading Style Sheets. Available at: https://developer.mozilla.org/ (Accessed: 11 July 2026).</li>
       <li>MDN Web Docs (2025) HTML: HyperText Markup Language. Available at: https://developer.mozilla.org/ (Accessed: 16 July 2026)</li>

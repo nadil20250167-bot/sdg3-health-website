@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PULSE — Page Editor (Student 4)</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page Editor doesn't have to match the main site design,
+       but I'm reusing the palette/curves loosely for consistency */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: var(--color-primary);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PULSE — Page Editor</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="profile.html">User Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Student 4 — Page Editor</h1>
+      <p><strong>Name:</strong> Student 4</p>
+      <p><strong>Role in group:</strong> User Profile &amp; Sitemap (Student 4)</p>
+    </section>
+
+    <!-- internal navigation for this long page -->
+    <nav aria-label="Page Editor contents">
+      <ul>
+        <li><a href="#completed">Completed Pages</a></li>
+        <li><a href="#profile-tech">Technical Description: User Profile</a></li>
+        <li><a href="#sitemap-tech">Technical Description: Sitemap</a></li>
+        <li><a href="#content-tech">Technical Description: Content Page</a></li>
+        <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+        <li><a href="#accessibility">Accessibility Considerations</a></li>
+        <li><a href="#compliance">Compliance (JANET)</a></li>
+        <li><a href="#meetings">Group Meetings Log</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </nav>
+
+    <section id="completed">
+      <h2>Completed Pages / Tasks</h2>
+      <ul>
+        <li>User Profile page (profile.html) — prompt()-driven, step-by-step health habits builder</li>
+        <li>Sitemap page (sitemap.html) — SVG interactive site diagram</li>
+        <li>Content page (content_ST4.html) — Managing Stress</li>
+        <li>Page Editor (this page)</li>
+        <li>Validation page (validation_ST4.html)</li>
+      </ul>
+    </section>
+
+    <section id="profile-tech">
+      <h2>Technical Description: User Profile Page</h2>
+      <p><a href="profile.html" target="_blank">Open the live page in a new tab</a> |
+      <a href="validation_ST4.html#profile">See its validation evidence</a></p>
+
+      <h3>HTML Structure</h3>
+      <p>The page reuses the shared &lt;header&gt;, &lt;nav&gt; and &lt;footer&gt;. The
+      &lt;main&gt; area has one &lt;section class="card"&gt; per step (Exercise, Sleep, Diet)
+      plus one more for the live output box. No &lt;div&gt; anywhere — just &lt;section&gt;.</p>
+
+      <h3>CSS Techniques</h3>
+      <p>Steps reuse the shared <code>.card</code> class for the rounded, shadowed box look.
+      The "Redo this step" button gets its own page-specific <code>.secondary-btn</code> class
+      (dashed outline instead of a solid fill) so it doesn't get mixed up with the main Start
+      button.</p>
+
+      <h3>JavaScript Technical Description</h3>
+      <p>Answers are collected with <code>prompt()</code> asked one at a time inside a
+      <code>for</code> loop, not through an HTML form. Each step lives in a
+      <code>stepConfig</code> object holding its 3 questions and which step comes next. Clicking
+      "Start" calls <code>runStep()</code>, which loops through the 3 prompts, saves each answer
+      (or the string <code>"Skipped"</code> if the box was left blank or Cancel was hit) into the
+      <code>profileData</code> object, then reveals the next step by flipping its
+      <code>style.display</code> from <code>none</code> to <code>block</code>. A separate
+      <code>updateProfile()</code> function rebuilds the output box and completion bar every time
+      a step finishes, using <code>document.getElementById()</code> and <code>.innerHTML</code> —
+      no page reload involved.</p>
+
+      <h3>Design and Implementation Rationale</h3>
+      <p>I went with <code>prompt()</code> because that's literally what the module spec asks
+      for on this page, even though it feels a bit old-school compared to buttons. Gating the
+      steps (Sleep stays hidden until Exercise is done) stops the page feeling like a wall of
+      buttons/prompts all at once, and keeps it closer to the "progressive reveal" behaviour the
+      brief describes. Letting people skip by leaving a prompt blank means nobody gets stuck if
+      they don't want to answer something personal, which felt like the right call for a health
+      habits page.</p>
+    </section>
+
+    <section id="sitemap-tech">
+      <h2>Technical Description: Sitemap Page</h2>
+      <p><a href="sitemap.html" target="_blank">Open the live page in a new tab</a> |
+      <a href="validation_ST4.html#sitemap">See its validation evidence</a></p>
+
+      <h3>HTML Structure</h3>
+      <p>Built entirely in SVG rather than a bitmap image, so every page in the site is a real,
+      clickable &lt;a&gt; element wrapping a &lt;rect&gt; and &lt;text&gt; pair. &lt;title&gt;
+      elements give each link an accessible name for screen readers.</p>
+
+      <h3>CSS Techniques</h3>
+      <p>Colour-coded node classes (<code>.secondary</code>, <code>.tertiary</code>,
+      <code>.current</code>) show hierarchy at a glance. <code>:hover</code> and
+      <code>:focus-visible</code> selectors change the rect's fill and stroke so both mouse
+      and keyboard users get the same feedback.</p>
+
+      <h3>JavaScript Technical Description</h3>
+      <p>There isn't any JavaScript on this page — the brief only asks for CSS hover feedback and
+      keyboard focus states here, both of which can be done natively with <code>:hover</code>,
+      <code>:focus-visible</code> and <code>tabindex="0"</code>. Adding JS would've been extra
+      complexity for no real gain.</p>
+
+      <h3>Design and Implementation Rationale</h3>
+      <p>SVG made more sense than a screenshot or bitmap image because every box needed to
+      actually be clickable and scale cleanly on different screen sizes — a raster image can't
+      do either of those well. Straight &lt;line&gt; connectors kept the diagram simple since
+      that was the only line type available; curved connectors weren't worth the extra
+      complexity for a coursework sitemap. <code>tabindex="0"</code> plus a visible focus outline
+      makes sure keyboard-only users can reach every node, and the <code>viewBox</code> attribute
+      lets the whole thing shrink or grow without pixelating.</p>
+    </section>
+
+    <section id="content-tech">
+      <h2>Technical Description: Content Page</h2>
+      <p><a href="content_ST4.html" target="_blank">Open the live page in a new tab</a> |
+      <a href="validation_ST4.html#content">See its validation evidence</a></p>
+
+      <h3>HTML Structure</h3>
+      <p>Content is split into clearly headed &lt;section&gt; elements (What Is Stress?, Common
+      Causes, Coping Techniques, Support Network), each with a unique <code>id</code> so the
+      top-of-page internal navigation can link straight to it with anchor links.</p>
+
+      <h3>CSS Techniques</h3>
+      <p>A fixed-position "Go to Top" link (<code>position: fixed</code>) stays on screen while
+      scrolling, built with HTML and CSS only — no JavaScript needed for that part.</p>
+
+      <h3>JavaScript Technical Description</h3>
+      <p>None on this page either — the brief says the "Go to Top" button can be pure HTML/CSS,
+      and since the rest of the page is just static content and internal anchor links, there
+      wasn't anything left that actually needed JavaScript.</p>
+
+      <h3>Design and Implementation Rationale</h3>
+      <p>The page is long enough that scrolling to find a specific section gets annoying fast, so
+      the internal nav menu at the top and the "Go to Top" button both exist purely to save the
+      reader's thumb. Images were picked to match each section literally (a messy desk for
+      "causes", someone breathing outdoors for "breathing techniques") rather than being generic
+      stock filler, and the heading levels stay strictly h1 → h2 → h3 with no skipped levels so
+      the page reads properly with a screen reader.</p>
+    </section>
+
+    <section id="challenges">
+      <h2>Challenges and Lessons Learned</h2>
+      <p>The trickiest part was getting the completion percentage to actually match what the user
+      had done — my first attempt counted skipped answers as "answered", which made the bar hit
+      100% even when someone had skipped half the questions. Fixing it meant storing skipped
+      answers as the string <code>"Skipped"</code> instead of just leaving them blank, so I could
+      check for that specific value when calculating the percentage. Positioning the SVG
+      connector lines on the sitemap was also more fiddly than expected — I ended up sketching
+      the layout on paper first and working out each rect's centre point by hand before writing
+      any coordinates, which made the whole thing much less trial-and-error.</p>
+    </section>
+
+    <section id="accessibility">
+      <h2>Accessibility Considerations</h2>
+      <ul>
+        <li>All images include descriptive <code>alt</code> text.</li>
+        <li>Every SVG link has a <code>&lt;title&gt;</code> for its accessible name plus
+        <code>tabindex="0"</code> so it's reachable by keyboard.</li>
+        <li>Visible <code>:focus-visible</code> outlines are applied to links, buttons, and
+        SVG nodes.</li>
+        <li>Headings follow a logical order (h1 → h2 → h3) with no levels skipped.</li>
+      </ul>
+      <p>None of this is just box-ticking — someone navigating with a keyboard or screen reader
+      needs to actually be able to tell what a link does and where they currently are on the
+      page, and a missed alt tag or skipped heading level is the kind of thing that quietly
+      breaks that for them without anyone else noticing.</p>
+    </section>
+
+    <section id="compliance">
+      <h2>Compliance with JANET Regulations</h2>
+      <p>All the content on my pages is written by me for this project, not copied from the UN
+      SDG site or anywhere else. The stock images used on the content page are sourced from
+      Unsplash/Pexels, which are free for this kind of use, and I've kept the source noted so
+      they can be credited properly. There's nothing offensive, defamatory, or unrelated to the
+      coursework anywhere on my pages, and the site is only being used to host and demonstrate
+      university coursework — which is exactly what the university's network is meant to be used
+      for.</p>
+    </section>
+
+    <section id="meetings">
+      <h2>Group Meetings and Individual Contribution Log</h2>
+      <p>Sample rows below to show the intended format — swap these for your real dates and
+      details.</p>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Date &amp; Time</th>
+          <th>Format</th>
+          <th>Objective</th>
+          <th>Attended</th>
+          <th>Your Individual Contribution</th>
+        </tr>
+        <tr><td>1</td><td>e.g. 3 June 2026, 2pm</td><td>Online (Teams)</td><td>Agree the SDG and split up pages</td><td>Yes</td><td>Agreed to take User Profile and Sitemap</td></tr>
+        <tr><td>2</td><td>e.g. 10 June 2026, 3pm</td><td>Face-to-face</td><td>Agree colour palette and fonts</td><td>Yes</td><td>Suggested the blue/white palette and rounded card style</td></tr>
+        <tr><td>3</td><td>e.g. 17 June 2026, 2pm</td><td>Online (Teams)</td><td>Progress check on individual pages</td><td>Yes</td><td>Showed first draft of profile.html, got feedback on the button layout</td></tr>
+        <tr><td>4</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td></tr>
+        <tr><td>5</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td></tr>
+        <tr><td>6</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td><td>[TODO]</td></tr>
+      </table>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ul>
+        <li>Module lecture notes — Weeks 1–5, HTML/CSS/JS and SVG fundamentals, Web Design and Development (4COSC011C)</li>
+        <li>MDN Web Docs — SVG, JavaScript prompt(), and CSS :focus-visible reference pages, developer.mozilla.org</li>
+        <li>W3C Markup Validation Service — used to check every page for HTML errors, validator.w3.org</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <section>
+      <h2>Student Details</h2>
+      <!-- TODO: replace with your real name -->
+      <p>Student 4 — User Profile &amp; Sitemap</p>
+    </section>
+  </footer>
+
+</body>
+</html>

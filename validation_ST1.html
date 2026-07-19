@@ -9,6 +9,33 @@
         #valid{
             text-align: center;
         }
+
+        .ss{
+    width: 100%;   /* fix the ss size in the card size */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid #0b72b5;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#center{
+    text-align: center;
+}
+p{
+    line-height: 1.5;
+    
+}
+
+.note{
+    border-left: 5px solid red;
+
+}
+
+        
+
+    
        
     </style>
 </head>
@@ -19,32 +46,32 @@
 
         <div class="logo">
         <h2>Batter Health And Well Being</h2> 
-        <img src="images/better-health.png"  alt="logo of the website">
+        <img src="images/better-health.png" class="validation-card" alt="logo of the website">
         </div>
         
         <ul class="nav-links">
             <li><a href="home.html" class="active">HOME</a></li>
             <li><a href="gallery.html">GALLERY</a></li>
-            <li><a href="SIMULATOR">SIMULATOR</a></li>
-            <li><a href="FEEDBACK">FEEDBACK</a></li>
-            <li><a href="TEAM">TEAM</a></li>
-            <li><a href="PROFILE">PROFILE</a></li>
-            <li><a href="SITEMAP">SITEMAP</a></li>
+            <li><a href="ais.html">SIMULATOR</a></li>
+            <li><a href="feedback.html">FEEDBACK</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+            <li><a href="sitemap.html">SITEMAP</a></li>
             
         </ul>
         </nav>
         </header>
         <main>
-  <h1 id="valid">Validation Evidence — Student 1</h1>
-  <p>Each section below corresponds to a page I implemented. Screenshots should show the W3C validator
+  <h1 id="valid">Validation Evidence  Student 1</h1>
+  <p id="center">Each section below corresponds to a page I implemented. Screenshots should show the W3C validator
      result with <strong>no errors</strong> (warnings are acceptable).</p>
 
   <section class="content" id="template">
     <h2>Shared Template / Global CSS</h2>
-    <p>Page name: home.html (uses the shared template) &nbsp;|&nbsp; CSS file: style.css</p>
+    
     <div class="validation-shot">
-      <p>[Insert W3C HTML validator screenshot for the template here]</p>
-      <img src="snapshout/css.png" alt="css validation">
+      
+      <img src="snapshout/css.png" class="ss" alt="css validation">
     </div>
     <p class="note">Warnings present: No</p>
   </section>
@@ -52,7 +79,7 @@
   <section class="content" id="home">
     <h2>Home Page — home.html</h2>
     <div class="validation-shot">
-      <img src="snapshout/home.png" alt="home page validation">
+      <img src="snapshout/home.png" class="ss" alt="home page validation">
     </div>
     <p class="note">Warnings present:No</p>
   </section>
@@ -60,24 +87,32 @@
   <section class="content" id="gallery">
     <h2>Gallery Page — gallery.html</h2>
     <div class="validation-shot">
-      <p>[Insert W3C HTML validator screenshot for gallery.html]</p>
+      <img src="snapshout/gallery.png" class="ss"  alt="gallery validation">
     </div>
-    <p class="note">Warnings present:Yes</p>
+    <p class="note">Warnings present:No</p>
   </section>
 
   <section class="content" id="content">
     <h2>Content Page — content_ST1.html</h2>
     <div class="validation-shot">
-      <img src="snapshout/content_ST1.png" alt="content ST1 validation">
+      <img src="snapshout/content_ST1.png" class="ss" alt="content ST1 validation">
     </div>
     <p class="note">Warnings present:No</p>
   </section>
 
+
+
+
   <section class="content" id="reflection">
     <h2>Reflection on the Validation Process</h2>
-    <p>[Describe any errors you encountered — e.g. an unclosed tag, a missing alt attribute, or a
-       duplicate id — how you found and fixed each one, and what you learned about writing valid HTML
-       from the process.]</p>
+    <p class="note">While validating my pages, I found a CSS selector mistake on this Validation Page: I wrote 
+.ss img instead of .ss, so my screenshot sizing rules never applied and one image stretched the 
+whole page sideways. I also found an unclosed ul tag and a duplicate "Student Details" section 
+in my footer, plus a missing heading inside a gallery article and a skipped heading level 
+(h2 to h4) in the footer. I fixed each by re-reading the code line by line rather than relying 
+on how the page looked in the browser, since invalid HTML doesn't always look broken visually. 
+The main lesson was that the validator catches structural mistakes the browser silently ignores, 
+so checking early and often is more reliable than only checking at the end.</p>
   </section>
 
 </main>
@@ -86,7 +121,7 @@
         <footer class="site-footer">
 
     <section>
-        <h4>Editors</h4>
+        <h3>Editors</h3>
         <ul>
             <li><a href="pageEditor_ST1.html">Student 1 — Editor</a></li>
             <li><a href="pageEditor_ST2.html">Student 2 — Editor</a></li>
@@ -96,17 +131,18 @@
     </section>
 
     <section>
-        <h4>Validation</h4>
+        <h3>Validation</h3>
         <ul>
             <li><a href="validation_ST1.html">Student 1 — Validation</a></li>
             <li><a href="validation_ST2.html">Student 2 — Validation</a></li>
             <li><a href="validation_ST3.html">Student 3 — Validation</a></li>
             <li><a href="validation_ST4.html">Student 4 — Validation</a></li>
+            </ul>
             
     </section>
 
     <section>
-        <h4>Student Details</h4>
+        <h3>Student Details</h3>
         <ul>
             <li>Student 1 — Template, Home &amp; Gallery</li>
             <li>Student 2 — Splash &amp; AIS</li>
@@ -117,8 +153,10 @@
     </section>
 
     <section>
-        <h4>Student Details</h4>
-      <ul><li> Nadil Sansana — Student 1</li></ul>
+        <h3>Student Details</h3>
+      <ul>
+        <ul><li> Nadil [ 20250167 ] — Student 1</li></ul>
+         <ul><li> UoW number [ 2212879 ]</li></ul>
         </ul>
 
 
@@ -126,7 +164,7 @@
     </section>
 
     <section>
-        <h4>Compliance</h4>
+        <h3>Compliance</h3>
         <ul>
             <li><a href="#accessibility">Accessibility Statement</a></li>
             <li>Complies with JANET Acceptable Use Policy</li>

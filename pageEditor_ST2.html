@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student 2 — Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #Editorid{
+
+            padding: 18px;
+            margin: 8px;
+            line-height: 1.5;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+    
+    <nav class="navbar">
+
+        <div class="logo">
+        <h2>Batter Health And Well Being</h2> 
+        <img src="images/logo.png"  alt="logo of the website">
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="home.html" class="active">HOME</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="SIMULATOR">SIMULATOR</a></li>
+            <li><a href="FEEDBACK">FEEDBACK</a></li>
+            <li><a href="TEAM">TEAM</a></li>
+            <li><a href="PROFILE">PROFILE</a></li>
+            <li><a href="SITEMAP">SITEMAP</a></li>
+            
+        </ul>
+        </nav>
+        </header>
+        <main>
+
+
+    <section id="overview">
+    <h1>Student Name and Role</h1>
+    <p><strong>Name:</strong> Malki Vidunima<br>
+       <strong>Role:</strong> Splash Screen, SDG Action Impact Simulator, Content Page</p>
+
+    <h2>Completed Pages / Tasks</h2>
+    <nav class="page-nav" aria-label="Sections on this page">
+      <ul>
+        <li><a href="#splash">Splash Screen</a></li>
+        <li><a href="#ais">Action Impact Simulator</a></li>
+        <li><a href="#content">Content Page</a></li>
+        <li><a href="#challenges">Challenges &amp; Lessons Learned</a></li>
+        <li><a href="#accessibility">Accessibility Considerations</a></li>
+        <li><a href="#compliance">Compliance with JANET Regulations</a></li>
+        <li><a href="#meetings">Group Meetings &amp; Contribution Log</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section id="splash">
+    <h2>Splash Screen</h2>
+    <p><a href="splash.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
+       <a href="validation_ST2.html#splash">See validation evidence &rarr;</a></p>
+
+    <h3>HTML Structure</h3>
+    <p>The Splash Screen does not use the shared site template, since the specification allows it to
+        stand apart from the header/main/footer structure as long as the look and feel still matches the
+        rest of the site. A <code>&lt;meta http-equiv="refresh"&gt;</code> tag is placed in the
+        <code>&lt;head&gt;</code> so the browser automatically loads <code>home.html</code> after four
+        seconds, without needing any JavaScript to trigger the redirect. The visible content sits inside a
+        single <code>&lt;main&gt;</code> element and is built from an <code>&lt;h1&gt;</code> for the site
+        title, a <code>&lt;p&gt;</code> for the mission statement, an <code>&lt;h2&gt;</code> and
+        <code>&lt;ul&gt;</code> listing the group members, a loading bar, a countdown message, and a skip
+        button — using headings and lists rather than a page built entirely from generic
+        <code>&lt;div&gt;</code> elements.</p>
+
+    <h3>CSS Techniques</h3>
+    <p>CSS custom properties declared on <code>:root</code> (such as <code>--c-primary</code> and
+       <code>--c-primary-dark</code>) hold the colour palette and font family in one place, so the whole
+       page's colour scheme can be adjusted by changing a single variable rather than editing many
+       separate rules. The full-screen background photo uses <code>background-size: cover</code> together
+       with a layered gradient overlay, which keeps the white text readable regardless of how bright or
+       busy the underlying photo is. The site title uses <code>clamp()</code> so its font size scales
+       smoothly between small and large screens instead of jumping abruptly at fixed breakpoints. The
+       loading bar fills using a CSS <code>@keyframes</code> animation timed to four seconds, so it
+       visually tracks the length of the countdown happening at the same time.</p>
+
+    <h3>JavaScript Functionality</h3>
+    <p><code>setInterval()</code> updates a countdown number in a <code>&lt;span&gt;</code> once every
+       second, giving the user a visible sense of how long is left before the redirect happens. A separate
+       <code>skipIntro()</code> function is attached to the skip button; when clicked, it clears that
+       interval and sets <code>window.location.href</code> to <code>home.html</code>, sending the user
+       straight to the home page immediately instead of waiting out the full four seconds.</p>
+
+    <h3>Design &amp; Implementation Rationale</h3>
+    <p>The countdown and loading bar were both kept visible at the same time because a single moving
+       element (the bar) reinforces the number shown in the countdown text, giving the user two
+       complementary cues that time is passing rather than relying on the number alone. The skip button
+       was included because forcing every visitor to wait the full four seconds, even on a repeat visit,
+       would be an unnecessary friction point — giving users control over how quickly they move past the
+       introduction respects their time while still showing the group's branding to first-time visitors.</p>
+  </section>
+
+  <section id="ais">
+    <h2>SDG Action Impact Simulator</h2>
+    <p><a href="ais.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
+       <a href="validation_ST2.html#ais">See validation evidence &rarr;</a></p>
+
+    <h3>HTML Structure</h3>
+    <p>The page uses the shared <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> and
+       <code>&lt;footer&gt;</code> template so it fits naturally alongside the rest of the group's work.
+       Inside <code>&lt;main&gt;</code>, the six action cards are each built from a
+       <code>&lt;div class="card"&gt;</code> carrying a <code>data-points</code> attribute that stores the
+       card's impact value, together with an image, an <code>&lt;h2&gt;</code> title, a short description
+       and a points line. Every card also has <code>tabindex="0"</code>, which pulls it into the normal
+       keyboard tab order even though a <code>&lt;div&gt;</code> would not be focusable by default. The
+       feedback panel below the cards uses an <code>&lt;h2&gt;</code>, two <code>&lt;span&gt;</code>
+       elements for the live count and score, a badge <code>&lt;div&gt;</code>, and a reset
+       <code>&lt;button&gt;</code>.</p>
+
+    <h3>CSS Techniques</h3>
+    <p>Embedded CSS scoped to the main container lays the cards out using <code>display: grid</code> with
+       <code>repeat(auto-fit, minmax(230px, 1fr))</code>, which lets the number of columns adjust smoothly
+       to the width of the screen without writing separate media queries for each breakpoint. A
+       <code>:focus</code> style adds a clear outline around whichever card is currently focused, so
+       keyboard users can always see where they are on the page. The background image behind the feedback
+       panel is scoped only to that element, using <code>background-size: cover</code> and a CSS
+       transition, so the cards above stay visually stable while only the result panel changes.</p>
+
+    <h3>JavaScript Functionality</h3>
+    <p>Every card has both a <code>click</code> listener and a <code>keydown</code> listener that checks
+       for <code>Enter</code> or <code>Space</code>, so selecting a card behaves the same way with a mouse
+       or a keyboard — this was required by the specification, since hover-only or CSS-only interaction was
+       explicitly not allowed. A <code>toggleCard()</code> function adds or removes a
+       <code>selected</code> class on click, and an <code>updateSummary()</code> function totals the points
+       of every selected card, works out an impact level from fixed thresholds, and updates the score
+       text, badge colour, feedback message and background image together in one place.</p>
+
+    <h3>Design &amp; Implementation Rationale</h3>
+    <p>Three impact levels (low, medium, high) were chosen instead of a single pass/fail result because
+       health habits build up gradually, and showing a spectrum of outcomes encourages users to keep adding
+       small actions rather than feeling like they have either "succeeded" or "failed" after one choice.
+       Changing the background image and badge colour for each level was intended to give an immediate,
+       visual sense of progress, reinforcing the numeric score with a mood that shifts from muted to more
+       energetic as the impact level rises.</p>
+  </section>
+
+  <section id="content">
+    <h2>Content Page</h2>
+    <p><a href="content_ST2.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
+       <a href="validation_ST2.html#content">See validation evidence &rarr;</a></p>
+
+    <h3>HTML Structure</h3>
+    <p>The Content Page deliberately covers a single focused sub-topic, physical activity and fitness,
+       rather than several unrelated topics, so every section stays genuinely relevant. The page opens
+       with an <code>&lt;h1&gt;</code> naming the topic directly, followed by a
+       <code>&lt;nav class="page-nav"&gt;</code> containing anchor links such as
+       <code>href="#routine"</code>, which jump the reader straight to the matching
+       <code>&lt;section id="..."&gt;</code> further down the page. Each section is built from an
+       <code>&lt;h2&gt;</code>, one or more paragraphs, and at least one relevant image with descriptive
+       <code>alt</code> text, keeping the heading order moving cleanly from <code>&lt;h1&gt;</code> to
+       <code>&lt;h2&gt;</code> without skipping a level.</p>
+
+    <h3>CSS Techniques</h3>
+    <p>Embedded CSS styles the intro banner, the topic label, and the individual section cards with
+       padding, rounded corners and soft shadows, reusing the same visual language as the AIS card layout
+       so the two pages feel like part of one connected site. The site's shared <code>.page-nav</code>
+       class from the global stylesheet is reused directly for the in-page navigation menu, rather than
+       being redefined here, so the page-specific CSS does not duplicate or conflict with the global
+       styles. A fixed-position <code>&lt;a class="go-top"&gt;</code> link sits in the corner of the
+       screen at all times, using only <code>position: fixed</code> and an anchor link back to the page
+       header, so returning to the top of a longer page never requires any JavaScript.</p>
+
+    <h3>Design &amp; Implementation Rationale</h3>
+    <p>Physical activity was chosen as a single, narrow sub-topic rather than a broad overview of general
+       wellbeing because a focused page lets each section go into genuine depth — why activity matters,
+       what actually counts as exercise, how to build a routine, and how to work around common barriers —
+       instead of skimming several ideas shallowly. The content is written for a general audience rather
+       than students specifically, since fitness habits and the barriers to them (time, motivation,
+       injury) apply just as much to working adults, parents or older readers as they do to students.</p>
+  </section>
+
+  <section id="challenges">
+    <h2>Challenges and Lessons Learned</h2>
+    <p>Running each of my pages through the W3C validator early on caught several issues that were easy to
+       miss by eye: heading levels skipping from <code>&lt;h1&gt;</code> to <code>&lt;h3&gt;</code> on the
+       action cards, a meta refresh value missing a required space, an <code>aria-label</code> placed on a
+       <code>&lt;div&gt;</code> without a role, and an 8-digit hex colour value that the validator's CSS
+       parser did not support, which caused a confusing, misplaced error further down the file rather than
+       pointing at the actual line at fault. The main lesson learned was to validate every page as soon as
+       it is drafted rather than leaving it until the end, since one small issue near the top of a
+       stylesheet can produce misleading errors elsewhere in the document, and fixing several unrelated
+       issues at once is much harder than fixing them one at a time as they appear.</p>
+  </section>
+
+  <section id="accessibility">
+    <h2>Accessibility Considerations</h2>
+    <p>On the Splash Screen, the countdown text uses <code>aria-live="polite"</code> so screen readers
+       announce the changing number without interrupting other content, and the loading indicator is
+       wrapped in an element with <code>role="group"</code> and an <code>aria-label</code> describing its
+       purpose, since <code>aria-label</code> is only valid on a <code>&lt;div&gt;</code> once it has been
+       given a role. A redundant <code>role="main"</code> was also removed from the
+       <code>&lt;main&gt;</code> element, since that role is already implied by the element itself and
+       repeating it is unnecessary.</p>
+    <p>On the Action Impact Simulator, every card image includes descriptive alt text, and every card can
+       be selected with the keyboard as well as the mouse, meeting the requirement that interactivity is
+       not CSS-only or mouse-only. On the Content Page, all images include meaningful alt text, headings
+       run in a logical order with no levels skipped, and the internal navigation links give an additional
+       way to move through a longer page without relying on scrolling alone.</p>
+  </section>
+
+  <section id="compliance">
+    <h2>Compliance with JANET Regulations</h2>
+    <p>All written content on the pages I created is my own original work. Where the Content Page draws on
+       general knowledge about physical activity, it has been written in my own words rather than copied
+       from any external source, avoiding plagiarism or copyright issues. None of the pages contain
+       offensive, illegal, discriminatory or inappropriate material, and all content is suitable for an
+       educational context.</p>
+    <p>Images used across the Splash Screen, Action Impact Simulator and Content Page are either
+       self-sourced or drawn from royalty-free image libraries rather than taken from copyrighted sources
+       without permission, and any external resource I have referenced is credited in the References
+       section below. Links that lead to my own pages from this editor open in a new browser tab so
+       visitors are not unexpectedly taken away from the page they were reading. The Group Meetings and
+       Contribution Log below reflects an honest account of my attendance and contribution, in line with
+       the module's expectations around responsible and truthful reporting.</p>
+  </section>
+
+  <section id="meetings">
+    <h2>Group Meetings and Individual Contribution Log</h2>
+
+    <table class="meeting-log">
+      <thead>
+        <tr><th>No</th><th>Date &amp; Time</th><th>Format</th><th>Objective</th><th>Attended</th><th>Your Individual Contribution</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>2026.07.01</td><td>Physical Meeting</td><td>Agree SDG and assign roles</td><td>Yes</td><td>Took responsibility for developing the Splash Screen, Action Impact Simulator (AIS), and my Content Page.</td></tr>
+        <tr><td>2</td><td>2026.07.08</td><td>Physical Meeting</td><td>Agree visual identity &amp; template plan</td><td>Yes</td><td>Discussed how the Splash Screen would work and clarified how the JavaScript countdown timer would work together with the meta refresh redirect.</td></tr>
+        <tr><td>3</td><td>2026.07.12</td><td>Online Meeting</td><td>Review Home Page draft</td><td>Yes</td><td>Applied the shared template to my AIS and Content Page. Shared a first draft of the Splash Screen and asked for feedback on the countdown and skip button.</td></tr>
+        <tr><td>4</td><td>2026.07.15</td><td>Physical Meeting</td><td>Review Gallery interactivity</td><td>Yes</td><td>Demonstrated the six action cards, the scoring logic and the background image change, and updated the thresholds based on group feedback.</td></tr>
+        <tr><td>5</td><td>2026.07.16</td><td>Physical Meeting</td><td>Integration &amp; navigation check across all pages</td><td>Yes</td><td>Fixed heading level and CSS validation errors on my pages and confirmed my navigation links pointed to the agreed file names.</td></tr>
+        <tr><td>6</td><td>2026.07.18</td><td>Online Meeting</td><td>Final review before submission</td><td>Yes</td><td>Finalised my Content Page, Page Editor and Validation Page, and checked all links across the site worked correctly.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="references">
+    <h2>References</h2>
+    <ul>
+      <li>Duckett, J. (2011) <em>HTML and CSS: Design and Build Websites.</em> Indianapolis: John Wiley &amp; Sons.</li>
+      <li>iStock (2025) <em>iStock.</em> Available at: https://www.istockphoto.com/ (Accessed: 17 July 2026).</li>
+      <li>Unsplash (2026) <em>Unsplash.</em> Available at: https://unsplash.com/ (Accessed: 17 July 2026).</li>
+      <li>World Wide Web Consortium (2026) <em>Markup Validation Service.</em> Available at: https://validator.w3.org/ (Accessed: 17 July 2026).</li>
+      <li>World Wide Web Consortium (2026) <em>CSS Validation Service.</em> Available at: https://jigsaw.w3.org/css-validator/ (Accessed: 17 July 2026).</li>
+      <li>MDN Web Docs (2026) <em>Web technology for developers.</em> Available at: https://developer.mozilla.org/ (Accessed: 17 July 2026).</li>
+      <li>World Wide Web Consortium Web Accessibility Initiative (2026) <em>Web Content Accessibility Guidelines (WCAG) 2 Overview.</em> Available at: https://www.w3.org/WAI/standards-guidelines/wcag/ (Accessed: 17 July 2026).</li>
+      <li>[Lecture: Web Design and Development, Week X — Automatic Redirect in Links]</li>
+    </ul>
+  </section>
+
+
+
+        </main>
+
+         <footer class="site-footer">
+
+    <section>
+        <h3>Related Pages</h3>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="ais.html">SIMULATOR</a></li>
+            <li><a href="content_ST2.html">My Content Page</a></li>
+            <li><a href="validation_ST2.html">My Validation Page</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Student Details</h3>
+        <ul><li>Malki [20250268] — Student 2</li></ul>
+
+    </section>
+
+    <p class="footer-bottom">
+        &copy;  Group Coursework for SDG 3: Good Health and Well-Being
+    </p>
+     </footer>
+
+
+
+</body>
+</html>

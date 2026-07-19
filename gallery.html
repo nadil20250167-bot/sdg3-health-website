@@ -179,6 +179,18 @@
   .modal-box.font-serif, .modal-box.font-serif h2, .modal-box.font-serif p { font-family: Georgia, 'Times New Roman', serif; }
   .modal-box.font-mono, .modal-box.font-mono h2, .modal-box.font-mono p { font-family: 'Courier New', monospace; }
 
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 
 
 
@@ -217,15 +229,18 @@
      <p id="gallery">Click any thumbnail below to learn more about that habit. Inside each expanded view you can also
       customise the colour scheme and font style used to display the information.</p>
 
-      <section class="gallery-grid" id="galleryGrid">
+      <div class="gallery-grid" id="galleryGrid"> 
+        
 
     <article class="gallery-item" tabindex="0"
          data-title="Walking &amp; Movement"
          data-img="images/ga1_run.jpg"
          data-desc="A brisk 20-minute walk improves circulation, mood, and concentration. It's one of the simplest, most accessible forms of exercise for busy students — no equipment or gym membership required.">
+
+         
       
       <img src="images/ga1_run.jpg" alt="Illustration of a person walking">
-      <p class="gallery-caption">Walking &amp; Movement</p>
+      <h2 class="gallery-caption">Walking &amp; Movement</h2>
 
     </article>
 
@@ -236,8 +251,8 @@
          data-desc="Just five minutes of mindful breathing can lower cortisol levels and help reset focus during a stressful revision day. Many universities offer free guided sessions in the student wellbeing centre.">
       
       <img src="images/meditation.jpg" alt="Illustration of a person meditating">
-      <p class="gallery-caption">Meditation &amp; <br>
-        Mindfulness</p>
+      <h2 class="gallery-caption">Meditation &amp; <br>
+        Mindfulness</h2>
 
     </article>
 
@@ -248,7 +263,7 @@
          data-desc="A plate built around vegetables, whole grains and lean protein supports steady energy throughout long lecture days, and is far cheaper than relying on convenience food.">
       
       <img src="images/g3_mealplate.jpg" alt="Illustration of a balanced meal">
-      <p class="gallery-caption">Balanced Nutrition</p>
+      <h2 class="gallery-caption">Balanced Nutrition</h2>
 
     </article>
 
@@ -259,11 +274,11 @@
          data-desc="Consistent sleep timing — even on weekends — improves memory consolidation and emotional regulation, both of which are essential for effective studying.">
       
       <img src="images/moon.jpg" alt="Illustration of a crescent moon representing sleep">
-      <p class="gallery-caption">Restorative Sleep</p>
+      <h2 class="gallery-caption">Restorative Sleep</h2>
 
     </article>
 
-</section>
+</div>
 
 
 <!-- Modal -->
@@ -271,8 +286,10 @@
 <div id="galleryModal" class="gallery-modal" hidden>
     <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button id="modalClose" class="modal-close" aria-label="Close details">&times;</button>
-      <img id="modalImg" src="" alt="">
-      <h2 id="modalTitle"></h2>
+      <img id="modalImg" src="images/ga1_run.jpg" alt="Gallery image">
+      <h2 id="modalTitle"> 
+         <span class="visually-hidden">Gallery Details</span>
+    </h2>
       <p id="modalDesc"></p>
 
       <div class="modal-controls">
@@ -294,24 +311,7 @@
   </div>
 
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
-
-        </main>
+</main>
 
         <footer class="site-footer">
 
@@ -382,6 +382,10 @@
   // Close modal
   function closeModal() {
     modal.setAttribute("hidden", "");
+
+    // Clear text only
+    modalTitle.textContent = "";
+    modalDesc.textContent = "";
   }
 
   // Open by click or keyboard
@@ -435,8 +439,6 @@
     }
   });
 </script>
-
-    
     
 </body>
 </html>

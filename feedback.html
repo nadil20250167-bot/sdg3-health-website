@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feedback &amp; Programme Directory | VITAL - SDG 3</title>
+<title>Feedback &amp; Programme Directory | PULSE - SDG 3</title>
 <link rel="stylesheet" href="style.css">
 <!-- Page-specific embedded CSS: styling unique to this page only.
      Does not redefine header/nav/card/footer rules already in the Global CSS. -->
@@ -135,6 +135,16 @@
   .submit-btn{
     margin:20px;
   }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 </style>
 </head>
 <body>
@@ -142,8 +152,8 @@
 <header>
   <div class="navbar">
     <div class="logo">
-      <img src="images/logo.png" alt="VITAL website logo - a heart with a pulse line">
-      <h2>VITAL</h2>
+      <img src="images/logo.png" alt="PULSE website logo - a heart with a pulse line">
+      <h2>PULSE</h2>
     </div>
     <ul class="nav-links">
       <li><a href="home.html">Home</a></li>
@@ -162,7 +172,7 @@
   <p style="text-align:center; padding:0 20px;">Browse local health initiatives connected to SDG 3, then tell us what you think.</p>
 
   <div class="sort-bar">
-    <h3>Available Programmes</h3>
+    <h2>Available Programmes</h2>
     <label for="sortSelect">Sort by:
       <select id="sortSelect">
         <option>Most popular</option>
@@ -214,17 +224,22 @@
     </div>
   </section>
 
-  <section class="ratings-summary">
+ <section class="ratings-summary">
+    <h2 class="visually-hidden">Ratings Summary</h2>
+
     <div class="score">8.7/10</div>
+
     <div>
-      <p style="padding:0; font-weight:bold;">Excellent - based on 42 reviews</p>
-      <p style="padding:4px 0 0;">Reviewers say these programmes are easy to join and genuinely helpful.</p>
+        <p style="padding:0; font-weight:bold;">Excellent - based on 42 reviews</p>
+        <p style="padding:4px 0 0;">
+            Reviewers say these programmes are easy to join and genuinely helpful.
+        </p>
     </div>
-  </section>
+</section>
 
   <section class="reviews-row" aria-label="Individual programme reviews">
     <div class="review-card">
-      <h4>Great way to start the day</h4>
+      <h3>Great way to start the day</h3>
       <p>The run club got me out of bed for something other than lectures for once. <a href="#">See more</a></p>
       <p style="font-size:13px; color:#555; margin-top:8px;">Amaya R. - 2 June 2026 - Rating: 9/10</p>
     </div>
@@ -297,7 +312,7 @@
 
 <footer class="site-footer">
   <section>
-    <h4>My Pages</h4>
+    <h3>My Pages</h3>
     <ul>
       <li><a href="pageEditor_ST3.html">Page Editor</a></li>
       <li><a href="validation_ST3.html">Validation Page</a></li>
@@ -305,13 +320,13 @@
   </section>
   <section>
     <h4>Student Details</h4>
-    <ul><li>Student 3 - Feedback &amp; Team Page</li></ul>
+    <ul><li>Nimsara Rajapakse - Feedback &amp; Team Page</li></ul>
   </section>
   <section>
-    <h4>About VITAL</h4>
+    <h4>About PULSE</h4>
     <ul><li>SDG 3: Good Health &amp; Well-being</li></ul>
   </section>
-  <div class="footer-bottom">&copy; 2026 VITAL. All rights reserved.</div>
+  <div class="footer-bottom">&copy; 2026 PULSE. All rights reserved.</div>
 </footer>
 
 <script>

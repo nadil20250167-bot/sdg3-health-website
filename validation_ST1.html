@@ -23,6 +23,15 @@
 #center{
     text-align: center;
 }
+p{
+    line-height: 1.5;
+    
+}
+
+.note{
+    border-left: 5px solid red;
+
+}
 
         
 
@@ -43,25 +52,25 @@
         <ul class="nav-links">
             <li><a href="home.html" class="active">HOME</a></li>
             <li><a href="gallery.html">GALLERY</a></li>
-            <li><a href="SIMULATOR">SIMULATOR</a></li>
-            <li><a href="FEEDBACK">FEEDBACK</a></li>
-            <li><a href="TEAM">TEAM</a></li>
-            <li><a href="PROFILE">PROFILE</a></li>
-            <li><a href="SITEMAP">SITEMAP</a></li>
+            <li><a href="ais.html">SIMULATOR</a></li>
+            <li><a href="feedback.html">FEEDBACK</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+            <li><a href="sitemap.html">SITEMAP</a></li>
             
         </ul>
         </nav>
         </header>
         <main>
-  <h1 id="valid">Validation Evidence — Student 1</h1>
+  <h1 id="valid">Validation Evidence  Student 1</h1>
   <p id="center">Each section below corresponds to a page I implemented. Screenshots should show the W3C validator
      result with <strong>no errors</strong> (warnings are acceptable).</p>
 
   <section class="content" id="template">
     <h2>Shared Template / Global CSS</h2>
-    <p>Page name: home.html (uses the shared template) &nbsp;|&nbsp; CSS file: style.css</p>
+    
     <div class="validation-shot">
-      <p>[Insert W3C HTML validator screenshot for the template here]</p>
+      
       <img src="snapshout/css.png" class="ss" alt="css validation">
     </div>
     <p class="note">Warnings present: No</p>
@@ -78,9 +87,9 @@
   <section class="content" id="gallery">
     <h2>Gallery Page — gallery.html</h2>
     <div class="validation-shot">
-      <p>[Insert W3C HTML validator screenshot for gallery.html]</p>
+      <img src="snapshout/gallery.png" class="ss"  alt="gallery validation">
     </div>
-    <p class="note">Warnings present:Yes</p>
+    <p class="note">Warnings present:No</p>
   </section>
 
   <section class="content" id="content">
@@ -91,11 +100,19 @@
     <p class="note">Warnings present:No</p>
   </section>
 
+
+
+
   <section class="content" id="reflection">
     <h2>Reflection on the Validation Process</h2>
-    <p>[Describe any errors you encountered — e.g. an unclosed tag, a missing alt attribute, or a
-       duplicate id — how you found and fixed each one, and what you learned about writing valid HTML
-       from the process.]</p>
+    <p class="note">While validating my pages, I found a CSS selector mistake on this Validation Page: I wrote 
+.ss img instead of .ss, so my screenshot sizing rules never applied and one image stretched the 
+whole page sideways. I also found an unclosed ul tag and a duplicate "Student Details" section 
+in my footer, plus a missing heading inside a gallery article and a skipped heading level 
+(h2 to h4) in the footer. I fixed each by re-reading the code line by line rather than relying 
+on how the page looked in the browser, since invalid HTML doesn't always look broken visually. 
+The main lesson was that the validator catches structural mistakes the browser silently ignores, 
+so checking early and often is more reliable than only checking at the end.</p>
   </section>
 
 </main>
@@ -120,6 +137,7 @@
             <li><a href="validation_ST2.html">Student 2 — Validation</a></li>
             <li><a href="validation_ST3.html">Student 3 — Validation</a></li>
             <li><a href="validation_ST4.html">Student 4 — Validation</a></li>
+            </ul>
             
     </section>
 

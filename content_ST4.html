@@ -1,11 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samarawickrama</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PULSE — Managing Stress</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* PAGE-SPECIFIC EMBEDDED CSS for the content page */
+    #top-nav {
+      background-color: #fafafa;
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      box-shadow: var(--shadow);
+    }
+    #top-nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .content-image {
+      display: block;
+      margin: 16px 0;
+      max-height: 320px;
+      object-fit: cover;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <!-- anchor target for the "Go to Top" button -->
+  <section id="top"></section>
+
+  <!-- ===== SHARED HEADER / NAV ===== -->
+  <header>
+    <h1>PULSE</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="ais.html">Action Impact Simulator</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="profile.html">User Profile</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Managing Stress: Practical Tools for Student Wellbeing</h1>
+      <p>If you've ever stared at a deadline at 11pm wondering how it crept up on you, you already
+      know this topic. Stress is one of the biggest everyday barriers to good health and
+      wellbeing (UN SDG 3) for university students, and it rarely gets talked about until it's
+      already a problem. This page covers what stress actually is, where it tends to come from
+      during term time, and a few simple, realistic ways to keep it in check.</p>
+    </section>
+
+    <!-- internal navigation menu for this longer page -->
+    <nav id="top-nav" aria-label="Page contents">
+      <ul>
+        <li><a href="#what-is-stress">What Is Stress?</a></li>
+        <li><a href="#causes">Common Causes</a></li>
+        <li><a href="#techniques">Coping Techniques</a></li>
+        <li><a href="#support">Building a Support Network</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===== SECTION 1 ===== -->
+    <section id="what-is-stress">
+      <h2>What Is Stress?</h2>
+      <img class="content-image" src="images/stress-meaning.jpg" alt="Student sitting at a desk with head in hands, looking overwhelmed by coursework">
+      <p>Stress is just the body's natural response to pressure — an exam deadline, a heavy
+      workload, or a big life change. In small doses it can actually sharpen focus; that jolt of
+      adrenaline before a presentation isn't necessarily a bad thing. Left unmanaged for too long,
+      though, it starts chipping away at sleep, concentration, mood, and physical health.</p>
+      <p><strong>Short-term stress</strong> passes once the pressure lifts — think the day before
+      an exam. <strong>Chronic stress</strong> sticks around for weeks or months and is the
+      version that actually needs active management.</p>
+    </section>
+
+    <!-- ===== SECTION 2 ===== -->
+    <section id="causes">
+      <h2>Common Causes for Students</h2>
+      <img class="content-image" src="images/stress-causes.jpg" alt="Cluttered desk with laptop, textbooks, and a calendar showing multiple deadlines">
+      <ul>
+        <li>Overlapping coursework and exam deadlines</li>
+        <li>Financial pressure and part-time work commitments</li>
+        <li>Moving away from home and adjusting to independent living</li>
+        <li>Balancing social life, sleep, and study time</li>
+      </ul>
+      <p>Most students will recognise at least two or three of these from their own week.
+      Recognising which ones apply to you is genuinely the first step — it's hard to manage a
+      stressor you haven't actually named.</p>
+    </section>
+
+    <!-- ===== SECTION 3 ===== -->
+    <section id="techniques">
+      <h2>Practical Coping Techniques</h2>
+
+      <section id="breathing">
+        <h3>Breathing and Grounding</h3>
+        <img class="content-image" src="images/stress-breathing.jpg" alt="Person sitting cross-legged outdoors practicing a calm breathing exercise">
+        <p>A slow, deliberate breathing pattern (in for 4 seconds, hold for 4, out for 4) can
+        lower your heart rate within a couple of minutes. It costs nothing and works between
+        lectures, before an exam, or during a busy commute.</p>
+      </section>
+
+      <section id="movement">
+        <h3>Movement</h3>
+        <p>Even a short walk between study sessions helps clear mental fatigue — and honestly,
+        it's the technique I forget about most, even though it works every time. You don't need
+        a gym membership; 15–20 minutes of walking outside is enough to notice a difference in
+        mood and focus.</p>
+      </section>
+
+      <section id="time-management">
+        <h3>Time Management</h3>
+        <img class="content-image" src="images/stress-planning.jpg" alt="Hand writing a weekly study schedule in a paper planner">
+        <p>Breaking a big deadline into smaller weekly tasks makes it feel achievable rather than
+        overwhelming. Planning study sessions the same way you'd plan a timetable reduces the
+        last-minute panic that causes most exam stress.</p>
+      </section>
+    </section>
+
+    <!-- ===== SECTION 4 ===== -->
+    <section id="support">
+      <h2>Building a Support Network</h2>
+      <img class="content-image" src="images/stress-support.jpg" alt="Small group of students talking and studying together at a table">
+      <p>Talking to a friend, coursemate, or your personal tutor about pressure you're under isn't
+      a last resort — it's just a normal, effective part of managing stress, even if it can feel
+      awkward to bring up first. Universities also run free wellbeing and counselling services
+      that are genuinely worth knowing about before you actually need them, not after.</p>
+    </section>
+
+    <!-- "Go to Top" button - HTML + CSS only, no JS -->
+    <a class="go-top" href="#top" aria-label="Back to top of page">↑ Top</a>
+  </main>
+
+  <!-- ===== SHARED FOOTER ===== -->
+  <footer>
+    <section>
+      <h2>Editors</h2>
+      <ul>
+        <li><a href="pageEditor_ST4.html">My Page Editor</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Validation</h2>
+      <ul>
+        <li><a href="validation_ST4.html">My Validation Evidence</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Student Details</h2>
+      <!-- TODO: replace with your real name -->
+      <p>Student 4 — User Profile &amp; Sitemap</p>
+    </section>
+    <section>
+      <h2>Compliance</h2>
+      <ul>
+        <li><a href="#">Accessibility Statement</a></li>
+      </ul>
+    </section>
+  </footer>
+
 </body>
 </html>

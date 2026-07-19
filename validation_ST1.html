@@ -9,6 +9,24 @@
         #valid{
             text-align: center;
         }
+
+        .ss{
+    width: 100%;   /* fix the ss size in the card size */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid #0b72b5;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#center{
+    text-align: center;
+}
+
+        
+
+    
        
     </style>
 </head>
@@ -19,7 +37,7 @@
 
         <div class="logo">
         <h2>Batter Health And Well Being</h2> 
-        <img src="images/better-health.png"  alt="logo of the website">
+        <img src="images/better-health.png" class="validation-card" alt="logo of the website">
         </div>
         
         <ul class="nav-links">
@@ -36,7 +54,7 @@
         </header>
         <main>
   <h1 id="valid">Validation Evidence — Student 1</h1>
-  <p>Each section below corresponds to a page I implemented. Screenshots should show the W3C validator
+  <p id="center">Each section below corresponds to a page I implemented. Screenshots should show the W3C validator
      result with <strong>no errors</strong> (warnings are acceptable).</p>
 
   <section class="content" id="template">
@@ -44,7 +62,7 @@
     <p>Page name: home.html (uses the shared template) &nbsp;|&nbsp; CSS file: style.css</p>
     <div class="validation-shot">
       <p>[Insert W3C HTML validator screenshot for the template here]</p>
-      <img src="snapshout/css.png" alt="css validation">
+      <img src="snapshout/css.png" class="ss" alt="css validation">
     </div>
     <p class="note">Warnings present: No</p>
   </section>
@@ -52,7 +70,7 @@
   <section class="content" id="home">
     <h2>Home Page — home.html</h2>
     <div class="validation-shot">
-      <img src="snapshout/home.png" alt="home page validation">
+      <img src="snapshout/home.png" class="ss" alt="home page validation">
     </div>
     <p class="note">Warnings present:No</p>
   </section>
@@ -68,7 +86,7 @@
   <section class="content" id="content">
     <h2>Content Page — content_ST1.html</h2>
     <div class="validation-shot">
-      <img src="snapshout/content_ST1.png" alt="content ST1 validation">
+      <img src="snapshout/content_ST1.png" class="ss" alt="content ST1 validation">
     </div>
     <p class="note">Warnings present:No</p>
   </section>

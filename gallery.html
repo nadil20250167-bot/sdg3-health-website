@@ -9,7 +9,7 @@
         
         #gheading{
 
-            text-align: center;
+            text-align:center;
         }
 
         p{
@@ -17,85 +17,142 @@
             line-height:1.6;
 
         }
+
+        #gallery{
+            text-align: center;
+            font-size: 20px;
+
+
+        }
        /* ===== Modal ===== */
 
+
+
+
+
+
+
+.gallery-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:28px;
+    padding:20px;
+}
+
+.gallery-item{
+    width:320px;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    transition:.3s ease;
+    cursor:pointer;
+}
+
+
+.gallery-item:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+
+
+
+
+
+
+.gallery-item img{
+
+    display:block;
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.gallery-caption{
+    background:#fff;
+    padding:20px 22px;
+    font-size:1.6rem;
+    font-weight:700;
+    color:#014d5b;
+}
+
 .gallery-modal {
-    width: 600px;
-    max-width: 90%;
-    padding: 25px;
-    border: none;
-    border-radius: 18px;
-    background: #ffffff;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-}
-
-/* Dark background behind the modal */
-.gallery-modal::backdrop {
-    background: rgba(0, 0, 0, 0.75);
-}
-
-/* Close button */
-.modal-close {
-    float: right;
-    background: #e63946;
-    color: white;
-    border: none;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.modal-close:hover {
-    background: #c1121f;
-    transform: rotate(90deg);
-}
-
-/* Image */
-#modalImg {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 30, 28, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 1rem;
+  }
+  .gallery-modal[hidden]{
+    display:none !important;
+  }
+  .modal-box {
+    background: #fff;
+    border-radius: var(--radius);
+    max-width: 500px;
     width: 100%;
-    height: 280px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .modal-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    border: none;
+    background: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    color: var(--color-text);
+  }
+  
+  .modal-controls {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .modal-box img {
+
+    width: 100%;
+    height: 240px;
     object-fit: cover;
-    border-radius: 12px;
-    margin: 20px 0;
-}
+    background: #d7ecdf;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 
-/* Title */
-#modalTitle {
-    text-align: center;
-    color: #0f766e;
-    font-size: 30px;
-    margin-bottom: 15px;
-}
 
-/* Description */
-#modalDesc {
-    color: #444;
-    font-size: 16px;
-    line-height: 1.8;
-    text-align: justify;
-    margin-bottom: 25px;
-}
+  }
 
-/* Controls */
-.modal-controls {
+  .modal-controls {
+    margin-top: 1.2rem;
     display: grid;
-    gap: 15px;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem 1rem;
+    align-items: center;
+    font-size: 0.95rem;
 }
 
 .modal-controls label {
-    font-weight: bold;
-    color: #333;
+    font-weight: 600;
+    color: #2409ba;
 }
 
-.modal-controls select {
+.modal-controls select { /* chage the image when it ckick it*/
     width: 100%;
-    padding: 10px;
+    padding: 8px 10px;
     border: 2px solid #0f766e;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 0.95rem;
     background: #f8fafc;
     cursor: pointer;
     transition: 0.3s;
@@ -108,45 +165,24 @@
 .modal-controls select:focus {
     outline: none;
     border-color: #2563eb;
-    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 0 8px rgba(22, 114, 195, 0.3);
 }
-#colourPicker{
-    width:50%;
-    height:50px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    background:none;
-}
+  .modal-controls select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid var(--color-neutral-300); }
+
+  /* Colour scheme variants — apply ONLY within the extended view */
+  .modal-box.theme-amber { background: #FFF6E8; }
+  .modal-box.theme-amber h2 { color: #a9660f; }
+  .modal-box.theme-navy { background: #EAF0FB; }
+  .modal-box.theme-navy h2 { color: #263a63; }
+
+  /* Font style variants — apply ONLY within the extended view */
+  .modal-box.font-serif, .modal-box.font-serif h2, .modal-box.font-serif p { font-family: Georgia, 'Times New Roman', serif; }
+  .modal-box.font-mono, .modal-box.font-mono h2, .modal-box.font-mono p { font-family: 'Courier New', monospace; }
 
 
 
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.4rem;
-    margin-top: 1.5rem;
-  }
-  .gallery-item {
-    background: var(--color-neutral-100);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    cursor: pointer;
-    outline-offset: 3px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .gallery-item:hover,
-  .gallery-item:focus {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 14px 28px rgba(15,110,93,0.25);
-  }
-  .gallery-caption {
-    padding: 0.8rem 1rem;
-    margin: 0;
-    font-weight: 600;
-    color: var(--color-primary-dark);
-  }
+
+
 
 
     </style>
@@ -165,11 +201,11 @@
         <ul class="nav-links">
             <li><a href="home.html">HOME</a></li>
             <li><a href="gallery.html" class="active">GALLERY</a></li>
-            <li><a href="SIMULATOR">SIMULATOR</a></li>
-            <li><a href="FEEDBACK">FEEDBACK</a></li>
-            <li><a href="TEAM">TEAM</a></li>
-            <li><a href="PROFILE">PROFILE</a></li>
-            <li><a href="SITEMAP">SITEMAP</a></li>
+            <li><a href="ais.html">SIMULATOR</a></li>
+            <li><a href="feedback.html">FEEDBACK</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+            <li><a href="sitemap.html">SITEMAP</a></li>
             
         </ul>
         </nav>
@@ -178,14 +214,14 @@
         <main>
         
      <h1 id="gheading">Gallery of Healthy Habits</h1>
-     <p>Click any thumbnail below to learn more about that habit. Inside each expanded view you can also
+     <p id="gallery">Click any thumbnail below to learn more about that habit. Inside each expanded view you can also
       customise the colour scheme and font style used to display the information.</p>
 
       <section class="gallery-grid" id="galleryGrid">
 
     <article class="gallery-item" tabindex="0"
          data-title="Walking &amp; Movement"
-         data-img="images/gallery-walk.svg"
+         data-img="images/ga1_run.jpg"
          data-desc="A brisk 20-minute walk improves circulation, mood, and concentration. It's one of the simplest, most accessible forms of exercise for busy students — no equipment or gym membership required.">
       
       <img src="images/ga1_run.jpg" alt="Illustration of a person walking">
@@ -196,18 +232,19 @@
 
     <article class="gallery-item" tabindex="0"
          data-title="Meditation &amp; Mindfulness"
-         data-img="images/gallery-meditate.svg"
+         data-img="images/meditation.jpg"
          data-desc="Just five minutes of mindful breathing can lower cortisol levels and help reset focus during a stressful revision day. Many universities offer free guided sessions in the student wellbeing centre.">
       
       <img src="images/meditation.jpg" alt="Illustration of a person meditating">
-      <p class="gallery-caption">Meditation &amp; Mindfulness</p>
+      <p class="gallery-caption">Meditation &amp; <br>
+        Mindfulness</p>
 
     </article>
 
 
     <article class="gallery-item" tabindex="0"
          data-title="Balanced Nutrition"
-         data-img="images/gallery-food.svg"
+         data-img="images/g3_mealplate.jpg"
          data-desc="A plate built around vegetables, whole grains and lean protein supports steady energy throughout long lecture days, and is far cheaper than relying on convenience food.">
       
       <img src="images/g3_mealplate.jpg" alt="Illustration of a balanced meal">
@@ -218,7 +255,7 @@
 
     <article class="gallery-item" tabindex="0"
          data-title="Restorative Sleep"
-         data-img="images/gallery-sleep.svg"
+         data-img="images/moon.jpg"
          data-desc="Consistent sleep timing — even on weekends — improves memory consolidation and emotional regulation, both of which are essential for effective studying.">
       
       <img src="images/moon.jpg" alt="Illustration of a crescent moon representing sleep">
@@ -230,41 +267,36 @@
 
 
 <!-- Modal -->
-<dialog id="galleryModal" class="gallery-modal">
 
-    <button id="modalClose" class="modal-close" aria-label="Close details">
-        &times;
-    </button>
+<div id="galleryModal" class="gallery-modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="modalClose" class="modal-close" aria-label="Close details">&times;</button>
+      <img id="modalImg" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
 
-    <img id="modalImg" src="" alt="">
-
-    <h2 id="modalTitle"></h2>
-
-    <p id="modalDesc"></p>
-
-
-    <section class="modal-controls">
-
+      <div class="modal-controls">
         <label for="colourSelect">Colour scheme:</label>
-
         <select id="colourSelect">
-            <option value="teal">Teal (default)</option>
-            <option value="amber">Amber</option>
-            <option value="navy">Navy</option>
+          <option value="teal">Teal (default)</option>
+          <option value="amber">Amber</option>
+          <option value="navy">Navy</option>
         </select>
-
 
         <label for="fontSelect">Font style:</label>
-
         <select id="fontSelect">
-            <option value="rounded">Rounded (default)</option>
-            <option value="serif">Serif</option>
-            <option value="mono">Monospace</option>
+          <option value="rounded">Rounded (default)</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Monospace</option>
         </select>
+      </div>
+    </div>
+  </div>
 
-    </section>
 
-</dialog>
+        
+
+
 
 
 
@@ -326,45 +358,7 @@
     </p>
      </footer>
 
-    <dialog id="galleryModal" class="gallery-modal">
-
-    <button id="modalClose" class="modal-close" aria-label="Close details">
-        &times;
-    </button>
-
-    <img id="modalImg" src="images/Eat_to_Thrive.jpg" alt="">
-
-    <header>
-        <h2 id="modalTitle">option</h2>
-    </header>
-
-    <section>
-        <p id="modalDesc">choose your options</p>
-    </section>
-   
-
-    <form class="modal-controls">
-
-        <label for="colourSelect">Colour scheme:</label>
-        <select id="colourSelect" name="colourSelect">
-            <option value="teal">Teal (default)</option>
-            <option value="amber">Amber</option>
-            <option value="navy">Navy</option>
-        </select>
-
-        <label for="colourPicker">Choose a colour:</label>
-
-<input
-    type="color"
-    id="colourPicker"
-    name="colourPicker"
-    value="#0f766e">
-
-    </form>
-
-</dialog>
-
-<script>
+     <script>
   const galleryItems = document.querySelectorAll(".gallery-item");
   const modal = document.getElementById("galleryModal");
   const modalBox = document.querySelector(".modal-box");
@@ -441,9 +435,6 @@
     }
   });
 </script>
-
-
-
 
     
     

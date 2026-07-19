@@ -129,19 +129,25 @@ section h2 {
     letter-spacing: 5px;
     word-spacing: 10px;
     text-transform: uppercase;
+    align-self: center;      /* centers it vertically among the cards, no matter how tall they get */
+    transition: color 0.4s ease, letter-spacing 0.4s ease;
     
     
-   transform: translateY(800px);
-   transition: all 0.5s ease; 
+   
 }
 
 .vertical-title:hover{
  
   color: rgba(186, 28, 28, 1); /* ADD THIS */
-    transform: translateY(780px); /* ADD THIS */
+    letter-spacing: 8px; /* ADD THIS */
 
 
 }
+
+
+
+   
+   
 
 
 
@@ -173,11 +179,11 @@ section h2 {
         <ul class="nav-links">
             <li><a href="home.html" class="active">HOME</a></li>
             <li><a href="gallery.html">GALLERY</a></li>
-            <li><a href="SIMULATOR">SIMULATOR</a></li>
-            <li><a href="FEEDBACK">FEEDBACK</a></li>
-            <li><a href="TEAM">TEAM</a></li>
-            <li><a href="PROFILE">PROFILE</a></li>
-            <li><a href="SITEMAP">SITEMAP</a></li>
+            <li><a href="ais.html">SIMULATOR</a></li>
+            <li><a href="feedback.html">FEEDBACK</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+            <li><a href="sitemap.html">SITEMAP</a></li>
             
         </ul>
         </nav>
@@ -196,6 +202,7 @@ section h2 {
 </section>
 <h2 id="main">Actions You Can Take</h2>
 
+
 <div class="cards-container">
 
   <div class="vertical-title left-text">
@@ -206,7 +213,7 @@ section h2 {
    <article class="card">
         <img src="images/Move_every_day.jpg" alt="Illustration of a person walking and stretching outdoors">
         <div class="card-body">
-          <h3>Protect Your Mind</h3>
+          <h3>Move Every Day</h3>
           
           <p>Physical inactivity is one of the leading risk factors for preventable illness among students,
              who often spend long hours sitting in lectures or studying. A short daily walk or stretch break

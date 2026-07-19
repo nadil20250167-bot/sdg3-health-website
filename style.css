@@ -213,7 +213,7 @@ header{
     color: #ffffff;
     padding: 40px 50px 20px;
     margin-top: 60px;
-    font-family:times 'Times New Roman', Times, serif;
+    font-family:'Times New Roman', serif;
 }
 
 .site-footer {
@@ -228,7 +228,7 @@ header{
     min-width: 220px;
 }
 
-.site-footer h4 {
+.site-footer h3 {
     color: #38bdf8;
     margin-bottom: 15px;
     font-size: 20px;

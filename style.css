@@ -134,9 +134,17 @@ header{
     width: 350px;
     display: flex;
     flex-direction: column;
+
+    background-image: url("images/back.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    overflow: hidden;
     background: white;
     border-radius: 20px;
     overflow: hidden;
+
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -155,6 +163,7 @@ header{
 
 .card-body {
     padding: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .card-body h3 {
@@ -185,25 +194,7 @@ header{
     list-style-type:square;
     color:dimgrey;
 }
-.card{
-    background-image: url("images/back.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.card-body{
-    background-color: rgba(255, 255, 255, 0.85);
-}
-
-
-
-
-
+  
 /* footer*/
 
 

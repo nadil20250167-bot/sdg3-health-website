@@ -18,6 +18,22 @@
             line-height: 1.5;
         }
 
+        .size{
+            font-size: 40px;
+            font-style: italic;
+        }
+        .small {
+            font-size: 23px ;
+            border-left: 4px solid red;
+              display: inline-block;
+            
+        }
+
+        #change{
+            line-height: 1.7;
+        }
+        
+
      
     </style>
 </head>
@@ -69,11 +85,18 @@
   </section>
 
   <section class="content" id="template">
-    <h2>Shared Template &amp; Global CSS</h2>
-    <p><a href="home.html" target="_blank" rel="noopener">Open a live page using the template &rarr;</a> |
-       <a href="validation_ST1.html">See validation evidence &rarr;</a></p>
+    <h2 class="size">Shared Template &amp; Global CSS</h2>
+    <p class="template-links">
+    <a href="home.html" target="_blank" rel="noopener">
+        Open a live page using the template →
+    </a>
 
-    <h3>HTML Structure</h3>
+    <a href="validation_ST1.html#template">
+        See validation evidence →
+    </a>
+</p>
+
+    <h3 class="small">HTML Structure</h3>
 
     <p>&lt;header&gt; is Represents introductory content for a page or section — typically containing the site logo, title, and main navigation. 
         Unlike a generic &lt;div&gt; , it tells both browsers and assistive technology "this is the top/intro area of the content," 
@@ -99,7 +122,7 @@
 
 
 
-    <h3>CSS Techniques</h3>
+    <h3 class="small">CSS Techniques</h3>
     <p><strong>Layout Approach:</strong> The navigation bar (<code>.navbar</code>) uses <strong>Flexbox</strong> (<code>display: flex</code>) with (<code>justify-content: space-between</code>) and (<code>align-items: center</code>). 
         This was chosen because the navbar is a one-dimensional layout — the logo sits on one side and the navigation links on the other — and Flexbox distributes these two groups across the row automatically, 
         while vertically centering them regardless of their height.
@@ -108,7 +131,7 @@
             Flexbox was sufficient here because the number of footer columns is small and consistent, so a full two-dimensional grid system wasn't necessary — Flexbox achieves the same responsive, 
             evenly-spaced column layout with simpler code.</p>
 
-    <h3>Design &amp; Implementation Rationale</h3>
+    <h3 class="small">Design &amp; Implementation Rationale</h3>
     <p><strong>Colour Palette:</strong> The site uses a blue-based palette (<code>#0077c0</code>, <code>#0b72b5</code>) for the header, navigation bar, and section headings, 
         paired with a soft light-green background (<code>#F1F8F4</code>) for the body. Blue was chosen because it conveys trust, professionalism, and calmness — fitting for
          a student wellbeing/university-related site — while the pale green background keeps the page feeling light and easy on the eyes rather than stark white. Accent colours on the topic tiles (green, orange, teal, navy) are used sparingly to differentiate categories without overwhelming the overall calm tone. Using the same blue consistently across the navbar, 
@@ -126,11 +149,20 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
   <!-- ===== 3. Home Page ===== -->
   <section class="content" id="home">
-    <h2>Home Page</h2>
-    <p><a href="home.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
-       <a href="validation_ST1.html#home">See validation evidence &rarr;</a></p>
+    <h2 class="size">Home Page</h2>
 
-    <h3>HTML Structure</h3>
+    <p class="template-links">
+    <a href="home.html" target="_blank" rel="noopener">
+        Open a live page using the template →
+    </a>
+
+    <a href="validation_ST1.html#home">
+        See validation evidence →
+    </a>
+</p>
+    
+
+    <h3 class="small">HTML Structure</h3>
     <p>The mission cards are wrapped in <code>&lt;article&gt;</code> tags because each card (e.g. "Move Every Day," "Sleep Matters") is a standalone piece of content with its own heading, text, and list — it would still make sense on its own if moved elsewhere. They sit inside a <code>&lt;section&gt;</code>, 
         which groups them together as one themed part of the page.</p>
 
@@ -140,13 +172,13 @@ Consistent spacing also improves accessibility, giving elements enough clickable
                 <p>Using these semantic tags instead of plain <code>div</code>s makes the page easier to understand for both browsers and screen readers, 
                     and helps organise the content logically.</p>
 
-    <h3>CSS Techniques</h3>
+    <h3 class="small">CSS Techniques</h3>
     <p>The card layout (<code>.cards-container</code>) and topic gallery (<code>.topic-gallery</code>) both use <strong>Flexbox</strong> (<code>display: flex; flex-wrap: wrap;</code>) rather than CSS Grid. This allows the cards/tiles to sit side-by-side and automatically wrap onto a new row when there isn't enough space, making the layout responsive across different screen sizes.
          A (<code>gap</code>) property adds even spacing between items without needing extra margins.</p>
          <p>The embedded page-specific CSS includes styles like (<code>.card</code>), (<code>.card-body</code>), and (<code>.topic-tile</code>), which control the look of individual cards and tiles — for example, rounded corners (<code>border-radius</code>), shadows (<code>box-shadow</code>), hover animations (<code>transform: translateY(-8px)</code>), and different background colours for each topic tile. These styles are specific to this page's components, 
             unlike the global styles (navbar, footer) which apply site-wide.</p>
 
-    <h3>Design &amp; Implementation Rationale</h3>
+    <h3 class="small">Design &amp; Implementation Rationale</h3>
     <p>Cards were used to present the mission content because they break information into small, scannable chunks — each card focuses on one topic (like sleep, stress, or movement) with a heading, short description, and list of tips. 
         This is easier for users to read than one long block of text, and lets them quickly find the topic that's relevant to them.</p>
 
@@ -156,28 +188,45 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
   <!-- ===== 4. Gallery Page ===== -->
   <section class="content" id="gallery">
-    <h2>Gallery Page</h2>
-    <p><a href="gallery.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
-       <a href="validation_ST1.html#gallery">See validation evidence &rarr;</a></p>
+    <h2 class="size">Gallery Page</h2>
 
-    <h3>HTML Structure</h3>
+    <p class="template-links">
+    <a href="gallery.html" target="_blank" rel="noopener">
+        Open a live page using the template →
+    </a>
+
+    <a href="validation_ST1.html#gallery">
+        See validation evidence →
+    </a>
+</p>
+    
+
+    <h3 class="small">HTML Structure</h3>
     <p>[Describe the gallery grid markup and the hidden modal element used for the extended view.]</p>
 
-    <h3>JavaScript Functionality</h3>
+    <h3 class="small">JavaScript Functionality</h3>
     <p>[Explain the event listeners used for hover, click-to-expand, and close behaviour, and how the
        colour/font customisation controls work with classList.]</p>
 
-    <h3>Design &amp; Implementation Rationale</h3>
+    <h3 class="small">Design &amp; Implementation Rationale</h3>
     
   </section>
 
   <!-- ===== 5. Content Page ===== -->
   <section class="content" id="content">
-    <h2>Content Page</h2>
-    <p><a href="content_ST1.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
-       <a href="validation_ST1.html#content">See validation evidence &rarr;</a></p>
+    <h2 class="size">Content Page</h2>
 
-    <h3>HTML Structure</h3>
+    <p class="template-links">
+    <a href="content_ST1.html" target="_blank" rel="noopener">
+        Open a live page using the template →
+    </a>
+
+    <a href="validation_ST1.html#content">
+        See validation evidence →
+    </a>
+</p>
+    
+<h3 class="small">HTML Structure</h3>
     <p>The page uses a clear heading hierarchy: <code>&lt;h1&gt;</code> for the main page title (e.g. "Sleep & Mental Wellbeing"), <code>&lt;h2&gt;</code> for major section titles (e.g. "Introduction," "Tips for Better Sleep"), and <code>&lt;h3&gt;</code> for smaller sub-topics within cards or tiles (e.g. "Move Every Day"). This structure helps both users and screen readers understand the page's organisation at a glance, 
         since headings act like a table of contents.</p>
         <p>Internal anchor navigation is used in the "On this page" bar, where each link (e.g. <code>#introduction</code>, <code>#schedule</code>) jumps directly to its matching section using the section's <code>id</code>. 
@@ -186,13 +235,13 @@ Consistent spacing also improves accessibility, giving elements enough clickable
             <p>A fixed-position "Go to Top" link stays visible in the corner of the screen as the user scrolls down, using <code>position: fixed</code>. Clicking it smoothly scrolls the page back to the top, 
                 making it easier to navigate long pages without manually scrolling all the way back up.</p>
 
-    <h3>CSS Techniques</h3>
+    <h3 class="small">CSS Techniques</h3>
     <p>The "Go to Top" button uses <code>position: fixed</code> so it stays in the same spot on the screen (e.g. bottom-right corner) no matter how far the user scrolls down the page. This is combined with values like <code>bottom</code> and <code>right</code> to pin it in place, and a high <code>z-index</code> to make sure it stays on top of other content rather than being hidden behind it. Clicking the button scrolls the page back to the top, 
         which is helpful on long pages so users don't have to manually scroll all the way back up.</p>
         <p>Images were framed using <code>border-radius</code> to soften their corners and <code>box-shadow</code> to give them a subtle lifted, card-like appearance. This makes images feel more polished and consistent with the rounded, card-based style used elsewhere on the site (like the mission cards), 
             rather than looking like plain, flat rectangles.</p>
 
-    <h3>Design &amp; Implementation Rationale</h3>
+    <h3 class="small">Design &amp; Implementation Rationale</h3>
     <p>Content was structured to be scannable by breaking information into short sections with clear headings, bullet-point lists, and cards rather than long paragraphs. Important terms (like "Date," "Time," or key tips) are bolded or emphasised so users can quickly spot key information without reading every word. Short paragraphs and lists make it easy for users to skim the page and find the specific topic they need (e.g. sleep, stress, nutrition) 
         instead of reading everything from top to bottom.</p>
 
@@ -202,7 +251,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
   <!-- ===== 6. Challenges ===== -->
   <section class="content" id="challenges">
-    <h2>Challenges and Lessons Learned</h2>
+    <h2 class="size">Challenges and Lessons Learned</h2>
     <p>[Describe at least one technical or design challenge you personally encountered, how you resolved
        it, and what you learned. E.g. keeping page-specific embedded CSS from conflicting with the global
        stylesheet, or making the gallery modal keyboard-accessible.]</p>
@@ -210,7 +259,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
   <!-- ===== 7. Accessibility ===== -->
   <section class="content" id="accessibility">
-    <h2>Accessibility Considerations</h2>
+    <h2 class="size">Accessibility Considerations</h2>
     <p>Another challenge I encountered was that my card layout wasn't behaving the way I expected — I had set a fixed <code>height: 700px</code> on my <code>.card</code> class, but the cards were displaying at different heights depending on their content, as if the fixed height wasn't being applied at all. After checking my stylesheet more closely, I realised I had accidentally defined <code>.card</code> twice — once earlier in the file with <code>height: 700px</code>, and again further down without a height set. Since CSS applies the last matching rule when there's a conflict, 
         the second definition was silently overriding the first, so my fixed height was never actually being used.</p>
 
@@ -224,7 +273,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
   <!-- ===== 8. Compliance ===== -->
   <section class="content" id="compliance">
-    <h2>Compliance with JANET Regulations</h2>
+    <h2 class="size">Compliance with JANET Regulations</h2>
     <p>My pages comply with JANET's Acceptable Use Policy in several ways. All written content on the site is my own original work, and any information based on external sources (such as health or wellbeing guidance) has been reworded in my own words rather than copied directly, avoiding plagiarism or copyright issues. The site does not contain any offensive, illegal, discriminatory, 
         or inappropriate material — all content is appropriate for an educational context and focused on student health and wellbeing.</p>
 
@@ -238,7 +287,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
 
   <section class="content" id="meetings">
-    <h2>Group Meetings and Individual Contribution Log</h2>
+    <h2 class="size">Group Meetings and Individual Contribution Log</h2>
     
     <table class="meeting-log">
       <thead>
@@ -256,12 +305,14 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <section class="content" id="references">
-    <h2>References</h2>
+    <h2 class="size">References</h2>
     <p>[List every resource consulted, e.g. lecture notes, MDN Web Docs, W3Schools, royalty-free image
        sources. Use a consistent style, e.g.:]</p>
-    <ul>
-      <li>MDN Web Docs (2025) <em>Using the HTML5 template element</em>. Available at: https://developer.mozilla.org [Accessed DATE].</li>
-      <li>[Lecture: Web Design and Development, Week X — Automatic Redirect in Links]</li>
+    <ul id="change">
+      <li>MDN Web Docs (2025) CSS: Cascading Style Sheets. Available at: https://developer.mozilla.org/ (Accessed: 11 July 2026).</li>
+      <li>MDN Web Docs (2025) HTML: HyperText Markup Language. Available at: https://developer.mozilla.org/ (Accessed: 16 July 2026)</li>
+      <li>W3Schools (2025) HTML Tutorial. Available at: https://www.w3schools.com/html/ (Accessed: 12 July 2026).</li>
+      <li>Leonardo.AI (2026) AI Image Generator. Available at: https://leonardo.ai/ (Accessed: 17 July 2026).</li>
     </ul>
   </section>
 

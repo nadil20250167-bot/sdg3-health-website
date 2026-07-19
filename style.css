@@ -28,6 +28,7 @@ p{
 
  h4{
         padding: 15px;
+        font-size: 20px;
  }
 
 header{
@@ -347,6 +348,29 @@ tr:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
         }
+
+        /* in side the page editor link controlers.*/
+
+     .template-links {
+    margin: 20px 0;
+}
+
+.template-links a {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-right: 12px;
+    text-decoration: none;
+    background-color: #284574;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.template-links a:hover {
+    background-color: #494d65;
+    transform: translateY(-3px);
+}
 
 
 

@@ -13,10 +13,16 @@
             line-height: 1.5;
 
         }
+
+        #info{
+            line-height: 1.5;
+        }
+
+     
     </style>
 </head>
 <body>
-    <header>
+    <header id="top">
     
     <nav class="navbar">
 
@@ -42,7 +48,8 @@
 
     <section id="overview">
     <h2>Student Name and Role</h2>
-    <p><strong>Name:</strong> Nadil Sansana Athuraliya<br>
+    <p id="info"><strong>Name:</strong> Nadil Sansana Athuraliya<br>
+        <strong>UoW Student ID:</strong> 2212879<br>
        <strong>Role:</strong> Shared Template &amp; Navigation, Home Page, Gallery Page</p>
 
     <h2>Completed Pages / Tasks</h2>
@@ -61,7 +68,7 @@
     </nav>
   </section>
 
-  <section id="template">
+  <section class="content" id="template">
     <h2>Shared Template &amp; Global CSS</h2>
     <p><a href="home.html" target="_blank" rel="noopener">Open a live page using the template &rarr;</a> |
        <a href="validation_ST1.html">See validation evidence &rarr;</a></p>
@@ -118,7 +125,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <!-- ===== 3. Home Page ===== -->
-  <section id="home">
+  <section class="content" id="home">
     <h2>Home Page</h2>
     <p><a href="home.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
        <a href="validation_ST1.html#home">See validation evidence &rarr;</a></p>
@@ -148,7 +155,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <!-- ===== 4. Gallery Page ===== -->
-  <section id="gallery">
+  <section class="content" id="gallery">
     <h2>Gallery Page</h2>
     <p><a href="gallery.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
        <a href="validation_ST1.html#gallery">See validation evidence &rarr;</a></p>
@@ -165,7 +172,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <!-- ===== 5. Content Page ===== -->
-  <section id="content">
+  <section class="content" id="content">
     <h2>Content Page</h2>
     <p><a href="content_ST1.html" target="_blank" rel="noopener">Open the live page &rarr;</a> |
        <a href="validation_ST1.html#content">See validation evidence &rarr;</a></p>
@@ -194,7 +201,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <!-- ===== 6. Challenges ===== -->
-  <section id="challenges">
+  <section class="content" id="challenges">
     <h2>Challenges and Lessons Learned</h2>
     <p>[Describe at least one technical or design challenge you personally encountered, how you resolved
        it, and what you learned. E.g. keeping page-specific embedded CSS from conflicting with the global
@@ -202,7 +209,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <!-- ===== 7. Accessibility ===== -->
-  <section id="accessibility">
+  <section class="content" id="accessibility">
     <h2>Accessibility Considerations</h2>
     <p>Another challenge I encountered was that my card layout wasn't behaving the way I expected — I had set a fixed <code>height: 700px</code> on my <code>.card</code> class, but the cards were displaying at different heights depending on their content, as if the fixed height wasn't being applied at all. After checking my stylesheet more closely, I realised I had accidentally defined <code>.card</code> twice — once earlier in the file with <code>height: 700px</code>, and again further down without a height set. Since CSS applies the last matching rule when there's a conflict, 
         the second definition was silently overriding the first, so my fixed height was never actually being used.</p>
@@ -216,7 +223,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
   </section>
 
   <!-- ===== 8. Compliance ===== -->
-  <section id="compliance">
+  <section class="content" id="compliance">
     <h2>Compliance with JANET Regulations</h2>
     <p>My pages comply with JANET's Acceptable Use Policy in several ways. All written content on the site is my own original work, and any information based on external sources (such as health or wellbeing guidance) has been reworded in my own words rather than copied directly, avoiding plagiarism or copyright issues. The site does not contain any offensive, illegal, discriminatory, 
         or inappropriate material — all content is appropriate for an educational context and focused on student health and wellbeing.</p>
@@ -230,7 +237,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
 
 
-  <section id="meetings">
+  <section class="content" id="meetings">
     <h2>Group Meetings and Individual Contribution Log</h2>
     
     <table class="meeting-log">
@@ -248,7 +255,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
     </table>
   </section>
 
-  <section id="references">
+  <section class="content" id="references">
     <h2>References</h2>
     <p>[List every resource consulted, e.g. lecture notes, MDN Web Docs, W3Schools, royalty-free image
        sources. Use a consistent style, e.g.:]</p>
@@ -261,6 +268,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
 
         </main>
+        <a class="go-top" href="#top">Top &uarr;</a>
 
          <footer class="site-footer">
 
@@ -276,7 +284,8 @@ Consistent spacing also improves accessibility, giving elements enough clickable
 
     <section>
         <h4>Student Details</h4>
-        <ul><li> Nadil [20250167] — Student 1</li></ul>
+        <ul><li> Nadil [ 20250167 ] — Student 1</li></ul>
+         <ul><li> UoW number [ 2212879 ]</li></ul>
         
     </section>
 

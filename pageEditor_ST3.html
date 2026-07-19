@@ -1,221 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PULSE - Technical Report (Student 3)</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #fcfcfc;
-        }
-
-        h1, h2, h3 {
-            color: #831843;
-        }
-
-        h1 {
-            border-bottom: 2px solid #be185d;
-            padding-bottom: 12px;
-        }
-
-        h2 {
-            margin-top: 32px;
-            border-bottom: 1px solid #cbd5e1;
-            padding-bottom: 6px;
-        }
-
-        .meta-table, .meeting-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        .meta-table th, .meta-table td, .meeting-table th, .meeting-table td {
-            border: 1px solid #cbd5e1;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .meta-table th, .meeting-table th {
-            background-color: #fdf2f8;
-        }
-
-        .meeting-table th {
-            font-size: 14px;
-        }
-
-        .meeting-table td {
-            font-size: 13px;
-        }
-
-        .nav-links {
-            margin: 20px 0;
-            background-color: #fdf2f8;
-            padding: 12px;
-            border-radius: 6px;
-        }
-
-        .nav-links a {
-            margin-right: 16px;
-            color: #be185d;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .nav-links a:hover {
-            text-decoration: underline;
-        }
-
-        .code-block {
-            background-color: #f1f5f9;
-            padding: 12px;
-            border-left: 4px solid #be185d;
-            font-family: monospace;
-            font-size: 13px;
-            overflow-x: auto;
-            margin: 12px 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Editor - Student 3 | VITAL</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body{ background:#fdfdfb; }
+  .editor-wrap{ max-width:950px; margin:0 auto; padding:20px 20px 60px; }
+  .editor-header{ background:#0b72b5; color:white; padding:30px 20px; margin-bottom:20px; border-radius:0 0 12px 12px; }
+  .editor-header h1{ padding:0; }
+  .editor-nav{ background:white; border:2px solid #0b72b5; border-radius:10px; padding:15px 20px; margin-bottom:30px; }
+  .editor-nav ul{ list-style:none; display:flex; flex-wrap:wrap; gap:16px; padding-left:0; }
+  .editor-nav a{ color:#0b72b5; font-weight:bold; text-decoration:none; }
+  .editor-nav a:hover{ text-decoration:underline; }
+  section.editor-section{ margin-bottom:40px; }
+  section.editor-section h2{ color:#0b72b5; border-bottom:3px solid #0b72b5; display:inline-block; padding:8px 0; }
+  .page-block{ background:white; border-radius:10px; padding:20px; margin-top:16px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+  .page-block h3{ padding:0 0 10px; font-size:1.3rem; }
+  .page-block a.live-link{ display:inline-block; margin-top:10px; font-weight:bold; }
+</style>
 </head>
 <body>
 
-    <h1>Page Editor - Technical & Reflective Report</h1>
-    
-    <div class="nav-links">
-        <a href="feedback.html" target="_blank">View Live Feedback Directory</a>
-        <a href="team.html" target="_blank">View Live Team Page</a>
-        <a href="content_ST3.html" target="_blank">View Live Content Page</a>
-        <a href="validation_ST3.html">View Validation Page (ST3)</a>
+<div class="editor-header">
+  <h1>Page Editor - Student 3</h1>
+  <p>Role: Feedback &amp; Programme Directory / Team Page</p>
+</div>
+
+<div class="editor-wrap">
+
+  <nav class="editor-nav" aria-label="Page editor contents">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#feedback-page">Feedback Page</a></li>
+      <li><a href="#team-page">Team Page</a></li>
+      <li><a href="#challenges">Challenges &amp; Lessons</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#janet">JANET Compliance</a></li>
+      <li><a href="#meetings">Meeting Log</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </nav>
+
+  <section class="editor-section" id="overview">
+    <h2>Content Overview</h2>
+    <p><strong>Name:</strong> [Your Name] &nbsp; | &nbsp; <strong>Role:</strong> Feedback &amp; Programme Directory, Team Page</p>
+    <p><strong>Completed pages/tasks:</strong></p>
+    <ul>
+      <li>feedback.html - Programme Directory, Ratings summary, Feedback form with JavaScript validation</li>
+      <li>team.html - Interactive team member thumbnails with expandable details</li>
+      <li>content_ST3.html - Individual content page on sleep and rest</li>
+      <li>validation_ST3.html - HTML validation evidence for the above pages</li>
+    </ul>
+  </section>
+
+  <section class="editor-section" id="feedback-page">
+    <h2>Feedback &amp; Programme Directory Page</h2>
+    <div class="page-block">
+      <h3>HTML Structure</h3>
+      <p>The page reuses the shared &lt;header&gt;, &lt;main&gt; and &lt;footer&gt; from the template. Inside &lt;main&gt;, a scrollable &lt;section&gt; holds four programme &lt;div class="card"&gt; elements, followed by a ratings summary section and a &lt;form&gt; split into two &lt;fieldset&gt; groups ("Personal Details" and "Feedback Details") with &lt;legend&gt; labels for accessibility.</p>
+      <h3>CSS Techniques</h3>
+      <p>The programme list uses a flexbox-based .cards-container (from the Global CSS) inside a scrollable container restricted with max-height and overflow-y. Buttons use a transition on background-color and transform for the hover effect required by the brief.</p>
+      <h3>JavaScript Functionality</h3>
+      <p>An input event listener updates a live character counter on the comments textarea. A submit event listener intercepts the form, checks each required field with simple validation rules, toggles per-field error messages, and reveals a confirmation message once every field passes.</p>
+      <h3>Design Rationale</h3>
+      <p>Fieldsets group related inputs so screen reader users hear the section purpose before each field, and the character counter gives immediate feedback on the message length limit rather than only failing silently on submit.</p>
+      <a class="live-link" href="feedback.html" target="_blank" rel="noopener">Open the live Feedback page &rarr;</a><br>
+      <a class="live-link" href="validation_ST3.html#feedback-validation" target="_blank" rel="noopener">View validation evidence for this page &rarr;</a>
     </div>
+  </section>
 
-    <!-- Student Metadata -->
-    <table class="meta-table">
-        <tr>
-            <th>Student Name:</th>
-            <td>Emily Davis</td>
-            <th>Role:</th>
-            <td>Student 3 (Forms & Layout Lead)</td>
-        </tr>
-        <tr>
-            <th>UoW Student ID:</th>
-            <td>w3456789</td>
-            <th>Assigned Pages:</th>
-            <td>Feedback, Team, Content ST3</td>
-        </tr>
-    </table>
-
-    <!-- Technical Description -->
-    <h2>Technical Description</h2>
-    
-    <h3>HTML5 Structure</h3>
-    <p>I structured <code>feedback.html</code> using two main semantic modules. First, a scrollable list containing health opportunities. Second, an interactive form grouped by <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> tags separating personal data from feedback content. On <code>team.html</code>, I structured 4 profile blocks with custom avatar parameters.</p>
-
-    <h3>CSS Techniques & Layout</h3>
-    <p>I designed the team page using pure CSS hover details. By default, card details are collapsed using <code>max-height: 0; opacity: 0;</code>. On hover or keyboard focus, these values expand to display the full description:</p>
-    <div class="code-block">
-.member-card:hover .contribution-details,<br>
-.member-card:focus-within .contribution-details {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;max-height: 200px;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;<br>
-}
+  <section class="editor-section" id="team-page">
+    <h2>Team Page</h2>
+    <div class="page-block">
+      <h3>HTML Structure</h3>
+      <p>Four team member blocks sit inside &lt;main&gt; as focusable &lt;div&gt; elements (tabindex="0"), each containing a thumbnail image, a name, a role, and a hidden details panel.</p>
+      <h3>CSS Techniques</h3>
+      <p>Hover and focus states are handled with the same rule set (:hover, :focus) so mouse and keyboard users get identical feedback. The details panel is animated by transitioning max-height and opacity rather than display, which keeps the transition smooth.</p>
+      <h3>Design Rationale</h3>
+      <p>Adding tabindex="0" and a visible outline on :focus ensures the interactive thumbnails are usable without a mouse, addressing the coursework's accessibility requirement directly.</p>
+      <a class="live-link" href="team.html" target="_blank" rel="noopener">Open the live Team page &rarr;</a><br>
+      <a class="live-link" href="validation_ST3.html#team-validation" target="_blank" rel="noopener">View validation evidence for this page &rarr;</a>
     </div>
+  </section>
 
-    <h3>JavaScript Functionality</h3>
-    <p>I programmed the JS form validator which runs on submission. If inputs are missing or incorrect, it intercepts the submit event, highlights borders in red, and updates descriptive warning elements. I also coded a live text area character tracker:</p>
-    <div class="code-block">
-function updateCharCount() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;const left = 150 - comment.value.length;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;remaining.textContent = left;<br>
-}
-    </div>
+  <section class="editor-section" id="challenges">
+    <h2>Challenges and Lessons Learned</h2>
+    <p>The main technical challenge was making the team member details panel keyboard-accessible without JavaScript. Using :focus-within on the parent block solved this, so the panel reveals whether the user tabs onto the container or a link inside it. I also learned that character-counter inputs need to update on every keystroke, not just on blur, otherwise the feedback feels laggy and unhelpful.</p>
+  </section>
 
-    <!-- Group Meetings Log -->
-    <h2>Group Meetings & Log</h2>
-    <p>As the layout and forms lead, I logged my meeting contributions below:</p>
-    
-    <table class="meeting-table">
-        <thead>
-            <tr>
-                <th>Meeting</th>
-                <th>Date & Time</th>
-                <th>Format</th>
-                <th>Objective</th>
-                <th>Attended</th>
-                <th>My Individual Contribution</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>23 Nov 2025, 14:00</td>
-                <td>Face-to-face</td>
-                <td>Agree SDG & assign roles</td>
-                <td>Yes</td>
-                <td>Agreed to handle the Feedback Directory and Team members information pages.</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>30 Nov 2025, 10:00</td>
-                <td>Online (Teams)</td>
-                <td>Discuss color palette</td>
-                <td>Yes</td>
-                <td>Suggested adding high-contrast outline borders around validation error boxes.</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>07 Dec 2025, 11:00</td>
-                <td>Hybrid</td>
-                <td>Review DOM scripts</td>
-                <td>Yes</td>
-                <td>Presented the form validator regex formulas that verify telephone and email inputs.</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>14 Dec 2025, 15:00</td>
-                <td>Online (Teams)</td>
-                <td>Link checks & validation</td>
-                <td>Yes</td>
-                <td>Assisted Student 1 in confirming relative links across all footer templates.</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>08 Jan 2026, 14:00</td>
-                <td>Face-to-face</td>
-                <td>Accessibility review</td>
-                <td>Yes</td>
-                <td>Configured keyboard tab indexes and aria roles inside team member cards.</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>15 Jan 2026, 10:00</td>
-                <td>Online (Teams)</td>
-                <td>Final code assembly</td>
-                <td>Yes</td>
-                <td>Helped refactor CSS styling variables inside style.css.</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Accessibility Considerations -->
+  <section class="editor-section" id="accessibility">
     <h2>Accessibility Considerations</h2>
-    <p>I placed explicit <code>&lt;label&gt;</code> attributes on all form inputs and added <code>tabindex="0"</code> to the team cards. This allows visually impaired students utilizing screen readers to navigate and hear member contribution summaries easily.</p>
+    <ul>
+      <li>All images include descriptive alt text (e.g. "Volunteer checking a person's blood pressure at a stall") rather than generic labels.</li>
+      <li>Form fields are grouped with fieldset/legend and each input has an associated label.</li>
+      <li>Interactive team thumbnails are keyboard-focusable with a visible focus outline.</li>
+      <li>Error messages appear directly beneath their related field so they are easy to associate with the input.</li>
+    </ul>
+  </section>
 
-    <!-- JANET Compliance -->
+  <section class="editor-section" id="janet">
     <h2>Compliance with JANET Regulations</h2>
-    <p>All assets and graphics are locally built and free of intellectual property conflicts. The pages run no tracking cookies or commercial tools, conforming to Westminster publishing guidelines.</p>
+    <p>All content on my pages is original or drawn from royalty-free placeholder image services, and no copyrighted UN text has been reproduced. The feedback form does not collect data for any purpose beyond this coursework demonstration and does not submit data externally. Content avoids offensive, defamatory, or misleading material, consistent with responsible academic web publishing.</p>
+  </section>
 
-    <!-- References -->
+  <section class="editor-section" id="meetings">
+    <h2>Group Meetings and Individual Contribution Log</h2>
+    <table class="meeting-log">
+      <tr><th>#</th><th>Date &amp; Time</th><th>Format</th><th>Objective</th><th>Attended</th><th>My Contribution</th></tr>
+      <tr><td>1</td><td>[Date]</td><td>Face-to-face</td><td>Agree SDG and assign roles</td><td>Yes</td><td>Agreed to take the Feedback and Team pages.</td></tr>
+      <tr><td>2</td><td>[Date]</td><td>Online</td><td>Agree visual identity</td><td>Yes</td><td>Suggested the card layout used across pages.</td></tr>
+      <tr><td>3</td><td>[Date]</td><td>Online</td><td>Review shared template</td><td>Yes</td><td>Tested the template with placeholder content.</td></tr>
+      <tr><td>4</td><td>[Date]</td><td>Hybrid</td><td>Progress review</td><td>Yes</td><td>Presented draft feedback form and got input on questions.</td></tr>
+      <tr><td>5</td><td>[Date]</td><td>Online</td><td>Accessibility check</td><td>Yes</td><td>Added keyboard focus states to the Team page.</td></tr>
+      <tr><td>6</td><td>[Date]</td><td>Face-to-face</td><td>Final integration</td><td>Yes</td><td>Linked my pages into the shared navigation and validated all pages.</td></tr>
+    </table>
+  </section>
+
+  <section class="editor-section" id="references">
     <h2>References</h2>
     <ul>
-        <li>W3C (2025) <em>Form Validation Guidelines</em>, W3C Recommendations.</li>
-        <li>Google Fonts (2026) <em>Outfit & Inter Spec</em>, Google.</li>
+      <li>Module lecture notes, Web Design and Development, University of Westminster, 2025/26.</li>
+      <li>MDN Web Docs - HTML fieldset and legend elements.</li>
+      <li>MDN Web Docs - CSS transitions and the :focus-within pseudo-class.</li>
+      <li>Placeholder images sourced from Picsum (picsum.photos) and Pravatar (i.pravatar.cc), royalty-free placeholder services.</li>
     </ul>
+  </section>
 
+</div>
 </body>
 </html>

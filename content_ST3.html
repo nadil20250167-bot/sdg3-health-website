@@ -1,11 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nimsara</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep &amp; Rest | VITAL - SDG 3</title>
+<link rel="stylesheet" href="style.css">
+<!-- Page-specific embedded CSS: internal nav, go-to-top button and image styling for this page only -->
+<style>
+  .page-nav{ position:sticky; top:0; z-index:5; }
+
+  .content-wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
+
+  .content-wrap img{
+    width:100%;
+    max-width:500px;
+    display:block;
+    margin:16px auto;
+    border-radius:10px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  }
+
+  .content-wrap section{ margin-bottom:30px; }
+
+  #goTopBtn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#0b72b5;
+    color:white;
+    padding:12px 16px;
+    border-radius:50%;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  }
+  #goTopBtn:hover{ background:#38bdf8; }
+</style>
 </head>
 <body>
-    
+
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="VITAL website logo - a heart with a pulse line">
+      <h2>VITAL</h2>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="page-nav" aria-label="Content page sections">
+  <ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#why-sleep">Why Sleep Matters</a></li>
+    <li><a href="#student-life">Sleep in Student Life</a></li>
+    <li><a href="#tips">Practical Tips</a></li>
+    <li><a href="#action">Take Action</a></li>
+  </ul>
+</nav>
+
+<main class="content-wrap">
+
+  <h1 id="intro">Sleep &amp; Rest: The Overlooked Pillar of Health</h1>
+  <p>When people talk about SDG 3, they usually picture hospitals, vaccines, or exercise. Rest gets forgotten. Yet sleep sits underneath almost every other measure of good health, and it is one of the few health factors a student can genuinely control day to day.</p>
+  <img src="https://picsum.photos/seed/sleep-intro/500/300" alt="Person sleeping peacefully in a dim, calm bedroom">
+
+  <section id="why-sleep">
+    <h2>Why Sleep Matters for Well-being</h2>
+    <p>During sleep, the body repairs tissue, consolidates memory, and regulates hormones that control appetite, mood, and stress response. Chronic short sleep is linked to weakened immunity, poorer concentration, and a higher long-term risk of conditions such as high blood pressure and depression. In short, rest is not a luxury, it is maintenance.</p>
+    <img src="https://picsum.photos/seed/sleep-cycle/500/300" alt="Illustration of a night sky representing a sleep cycle">
+  </section>
+
+  <section id="student-life">
+    <h2>Sleep in Student Life</h2>
+    <h3>Why Students Struggle</h3>
+    <p>Irregular timetables, late-night deadlines, and shared living spaces make consistent sleep hard for students specifically. Many students trade sleep for study time, assuming it is the safer sacrifice, when research consistently shows the opposite: sleep-deprived revision is far less effective than well-rested revision.</p>
+    <h3>Who This Affects</h3>
+    <p>This matters most for first-year students adjusting to independent routines, and for anyone juggling part-time work alongside coursework, where evenings and sleep windows are the first thing to get squeezed.</p>
+    <img src="https://picsum.photos/seed/student-desk/500/300" alt="Student working late at a desk with a laptop and coffee">
+  </section>
+
+  <section id="tips">
+    <h2>Practical Tips</h2>
+    <ul>
+      <li>Keep a consistent wake-up time, even on weekends, to stabilise your body clock.</li>
+      <li>Stop caffeine at least six hours before bed.</li>
+      <li>Dim screens or switch to warm lighting an hour before sleep.</li>
+    </ul>
+    <img src="https://picsum.photos/seed/wind-down/500/300" alt="Warm bedside lamp and a book, suggesting a wind-down routine">
+  </section>
+
+  <section id="action">
+    <h2>Take Action</h2>
+    <p>Visit the <a href="ais.html">Action Impact Simulator</a> to see how small changes like these add up, or share your own experience on our <a href="feedback.html">Feedback page</a>.</p>
+  </section>
+
+</main>
+
+<a href="#intro" id="goTopBtn" aria-label="Go to top of page">&uarr; Top</a>
+
+<footer class="site-footer">
+  <section>
+    <h4>My Pages</h4>
+    <ul>
+      <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+      <li><a href="validation_ST3.html">Validation Page</a></li>
+    </ul>
+  </section>
+  <section>
+    <h4>Student Details</h4>
+    <ul><li>Student 3 - Feedback &amp; Team Page</li></ul>
+  </section>
+  <section>
+    <h4>About VITAL</h4>
+    <ul><li>SDG 3: Good Health &amp; Well-being</li></ul>
+  </section>
+  <div class="footer-bottom">&copy; 2026 VITAL. All rights reserved.</div>
+</footer>
+
 </body>
 </html>

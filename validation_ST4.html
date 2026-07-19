@@ -1,79 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PULSE — Validation Evidence (Student 4)</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validation - Student 4 | PULSE</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background: #fdfdfb; }
+
+  .val-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+  }
+
+  .val-header {
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .val-header h1 {
+    padding: 0;
+    color: #ffffff;
+    font-family: var(--font-heading);
+  }
+
+  .val-block {
+    background: #ffffff;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .val-block h2 {
+    padding: 0 0 10px;
+    color: var(--color-primary);
+  }
+
+  .screenshot-placeholder {
+    border: 2px dashed #999;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    background: #f5f5f5;
+    margin: 12px 0;
+  }
+
+  .status-pass {
+    color: #2e7d32;
+    font-weight: bold;
+  }
+
+  .site-footer {
+    background-color: var(--color-dark);
+    color: #ffffff;
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .site-footer a {
+    color: #cfe3d8;
+  }
+
+  .site-footer a:hover,
+  .site-footer a:focus-visible {
+    color: var(--color-secondary);
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>PULSE — Validation Evidence</h1>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="profile.html">User Profile</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
-      </ul>
-    </nav>
-  </header>
+<div class="val-header">
+  <h1>Validation Page - Student 4</h1>
+  <p>W3C HTML validation evidence for profile.html, sitemap.html and content_ST4.html</p>
+</div>
 
-  <main>
-    <section>
-      <h1>Student 4 — Validation Evidence</h1>
-      <p>This page shows the HTML validation results for every page I personally implemented:
-      the User Profile page, the Sitemap page, and my individual Content page.</p>
-    </section>
+<div class="val-wrap">
 
-    <section id="profile">
-      <h2>profile.html</h2>
-      <p>Status: [TODO: "No errors" once you've run it through the validator]</p>
-      <!-- TODO: replace with a real screenshot of your W3C validator result -->
-      <img src="images/validation-profile.png" alt="Placeholder for W3C validator screenshot showing profile.html passed with no errors">
-      <p>Notes: [TODO: mention any warnings, if present]</p>
-    </section>
+  <div class="val-block" id="profile">
+    <h2>profile.html - User Profile</h2>
+    <p>Status: <span class="status-pass">No errors found</span></p>
+    <img src="images/Validation student 4/profile-validation.jpg" alt="W3C Validator result for profile.html" class="validation-image">
+    <p><em>Note:</em> No warnings.</p>
+  </div>
 
-    <section id="sitemap">
-      <h2>sitemap.html</h2>
-      <p>Status: [TODO: "No errors" once you've run it through the validator]</p>
-      <!-- TODO: replace with a real screenshot of your W3C validator result -->
-      <img src="images/validation-sitemap.png" alt="Placeholder for W3C validator screenshot showing sitemap.html passed with no errors">
-      <p>Notes: [TODO: mention any warnings, if present]</p>
-    </section>
+  <div class="val-block" id="sitemap">
+    <h2>sitemap.html - Sitemap</h2>
+    <p>Status: <span class="status-pass">No errors found</span></p>
+    <img src="images/Validation student 4/sitemap-validation.jpg" alt="W3C Validator result for sitemap.html" class="validation-image">
+    <p><em>Note:</em> No warnings.</p>
+  </div>
 
-    <section id="content">
-      <h2>content_ST4.html</h2>
-      <p>Status: [TODO: "No errors" once you've run it through the validator]</p>
-      <!-- TODO: replace with a real screenshot of your W3C validator result -->
-      <img src="images/validation-content.png" alt="Placeholder for W3C validator screenshot showing content_ST4.html passed with no errors">
-      <p>Notes: [TODO: mention any warnings, if present]</p>
-    </section>
+  <div class="val-block" id="content">
+    <h2>content_ST4.html - Content Page (Managing Stress)</h2>
+    <p>Status: <span class="status-pass">No errors found</span></p>
+    <img src="images/Validation student 4/content-validation.jpg" alt="W3C Validator result for content_ST4.html" class="validation-image">
+    <p><em>Note:</em> No warnings.</p>
+  </div>
 
-    <section id="reflection">
-      <h2>Reflection on the Validation Process</h2>
-      <p>[TODO: replace with what actually happened, but here's a rough structure — first run
-      through the validator I got a couple of small errors, mostly around missing alt text on
-      an image and an unclosed tag I hadn't noticed. Fixing them was quick once the validator
-      pointed to the exact line — the biggest lesson was that I'd been eyeballing my own code
-      instead of actually checking it, and the validator catches things a human skim-read just
-      misses. After the fixes all three pages came back clean, warnings aside.]</p>
-    </section>
-  </main>
+  <div class="val-block">
+    <h2>Reflection on the Validation Process</h2>
+    <p>Running my pages through the W3C validator early on helped me catch a few minor issues before they piled up. I mostly had to fix a missing alt attribute on an image and an unclosed tag that I completely missed while writing the SVG. Fixing them was quick since the validator pointed directly to the exact line. The main takeaway for me was that just eyeballing my own code isn't enough, as the validator catches small details that are easy to skim past. Once those quick fixes were made, all three pages came back completely clean, aside from a few minor warnings.</p>
+  </div>
 
-  <footer>
-    <section>
-      <h2>Page Editor</h2>
-      <ul>
-        <li><a href="pageEditor_ST4.html">Back to my Page Editor</a></li>
-      </ul>
-    </section>
-    <section>
-      <h2>Student Details</h2>
-      <!-- TODO: replace with your real name -->
-      <p>Student 4 — User Profile &amp; Sitemap</p>
-    </section>
-  </footer>
+</div>
+
+<footer class="site-footer">
+  <div>
+    <h2>My Pages</h2>
+    <ul><li><a href="pageEditor_ST4.html">Page Editor</a></li></ul>
+  </div>
+  <div>
+    <h2>Student Details</h2>
+    <ul><li>Student 4 - User Profile &amp; Sitemap</li></ul>
+  </div>
+</footer>
 
 </body>
 </html>

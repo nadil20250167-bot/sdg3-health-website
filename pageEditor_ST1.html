@@ -18,7 +18,7 @@
             line-height: 1.5;
         }
 
-        .size{
+        .size {
             font-size: 40px;
             font-style: italic;
         }
@@ -50,11 +50,11 @@
         <ul class="nav-links">
             <li><a href="home.html" class="active">HOME</a></li>
             <li><a href="gallery.html">GALLERY</a></li>
-            <li><a href="SIMULATOR">SIMULATOR</a></li>
-            <li><a href="FEEDBACK">FEEDBACK</a></li>
-            <li><a href="TEAM">TEAM</a></li>
-            <li><a href="PROFILE">PROFILE</a></li>
-            <li><a href="SITEMAP">SITEMAP</a></li>
+            <li><a href="ais.html">SIMULATOR</a></li>
+            <li><a href="feedback.html">FEEDBACK</a></li>
+            <li><a href="team.html">TEAM</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+            <li><a href="sitemap.html">SITEMAP</a></li>
             
         </ul>
         </nav>
@@ -202,11 +202,31 @@ Consistent spacing also improves accessibility, giving elements enough clickable
     
 
     <h3 class="small">HTML Structure</h3>
-    <p>[Describe the gallery grid markup and the hidden modal element used for the extended view.]</p>
+    <p>The gallery page is built around two main pieces: a grid of clickable thumbnails, and a single hidden overlay that expands to show more detail.</p>
+
+<p>The gallery grid (<code>.gallery-grid</code>) contains four <code>&lt;article&gt;</code> elements, each representing one healthy habit 
+    (e.g. Walking &amp; Movement, Meditation &amp; Mindfulness, Balanced Nutrition, Restorative Sleep). <code>&lt;article&gt;</code> was chosen over
+     a generic <code>&lt;div&gt;</code> because each thumbnail is a self-contained, meaningful piece of content — an image, a caption, and its own associated description — that would
+      still make sense if displayed on its own. Each <code>&lt;article&gt;</code> is given <code>tabindex="0"</code> so keyboard users can Tab to it, and custom <code>data-*</code> attributes (<code>data-title</code>, <code>data-img</code>, <code>data-desc</code>) store the extended content for that item directly in the markup, rather than duplicating it elsewhere in the page or fetching it separately with JavaScript.</p>
+
+<p>The extended view itself is a single hidden <code>&lt;div&gt;</code> (<code>id="galleryModal"</code>), 
+    present once in the page but reused for every thumbnail. It starts with the <code>hidden</code> attribute set, 
+    so it's invisible and removed from the accessibility tree until JavaScript activates it. Inside it sits a <code>.modal-box</code>, marked with <code>role="dialog"</code> and <code>aria-modal="true"</code> so assistive technology announces it correctly as a modal dialog, plus <code>aria-labelledby="modalTitle"</code> so screen readers associate the dialog with its heading. Inside the box are placeholder elements — an 
+    empty <code>img</code>, an empty <code>h2</code>, and an empty <code>p</code> — which JavaScript fills in dynamically depending on which thumbnail was clicked, along with two <code>select</code> dropdowns letting the user customise the colour scheme and font style of the expanded view.</p>
+
+<p>Using one shared modal rather than writing four separate expanded sections avoids repeating the same HTML structure four times, 
+    and keeps the customisation controls (colour/font) consistent regardless of which habit the user is viewing.</p>
 
     <h3 class="small">JavaScript Functionality</h3>
-    <p>[Explain the event listeners used for hover, click-to-expand, and close behaviour, and how the
-       colour/font customisation controls work with classList.]</p>
+    <p>Hover feedback is handled with CSS (<code>:hover</code> on <code>.gallery-item</code>), which lifts the card slightly and adds a shadow, giving users visual confirmation the item is clickable.</p>
+
+<p>Click-to-expand uses a <code>click</code> event listener on each <code>.gallery-item</code>, which reads that item's <code>data-title</code>, <code>data-img</code>, and <code>data-desc</code> attributes and inserts them into the modal's <code>img</code>, <code>h2</code>, and <code>p</code> elements 
+    before removing the <code>hidden</code> attribute to reveal it. A matching <code>keydown</code> listener checks for <code>Enter</code> or <code>Space</code>, so the same expand action works for keyboard users, not just mouse clicks.</p>
+
+<p>Closing the modal is handled three ways: clicking the close button, clicking outside the modal box, and pressing <code>Escape</code> — all of which call the same <code>closeModal()</code> function, which re-adds the <code>hidden</code> attribute.</p>
+
+<p>The colour and font dropdowns use <code>change</code> event listeners. When an option is selected, <code>classList.remove()</code> first clears any existing theme/font class from the modal box, then <code>classList.add()</code> applies the new one (e.g.
+     <code>theme-amber</code> or <code>font-serif</code>). Matching CSS rules for each class then control how the modal looks, so switching options changes the colour scheme or font instantly without reloading the page.</p>
 
     <h3 class="small">Design &amp; Implementation Rationale</h3>
     
@@ -295,11 +315,11 @@ Consistent spacing also improves accessibility, giving elements enough clickable
       </thead>
       <tbody>
         <tr><td>1</td><td>2026.07.01</td><td>Physical Meeting</td><td>Agree SDG and assign roles</td><td>Yes</td><td>100%</td></tr>
-        <tr><td>2</td><td>2026.07.08</td><td>Physical Meeting</td><td>Agree visual identity &amp; template plan</td><td>Yes</td><td></td></tr>
-        <tr><td>3</td><td>2026.07.12</td><td>Online Meeting</td><td>Review Home Page draft</td><td>Yes</td><td></td></tr>
-        <tr><td>4</td><td>2026.07.15</td><td>Physical Meeting</td><td>Review Gallery interactivity</td><td>Yes</td><td></td></tr>
-        <tr><td>5</td><td>2026.07.16</td><td>Physical Meeting</td><td>Integration &amp; navigation check across all pages</td><td>Yes</td><td></td></tr>
-        <tr><td>6</td><td>2026.07.18</td><td>Online Meeting</td><td>Final review before submission</td><td>Yes</td><td></td></tr>
+        <tr><td>2</td><td>2026.07.08</td><td>Physical Meeting</td><td>Agree visual identity &amp; template plan</td><td>Yes</td><td>100%</td></tr>
+        <tr><td>3</td><td>2026.07.12</td><td>Online Meeting</td><td>Review Home Page draft</td><td>Yes</td><td>100%</td></tr>
+        <tr><td>4</td><td>2026.07.15</td><td>Physical Meeting</td><td>Review Gallery interactivity</td><td>Yes</td><td>100%</td></tr>
+        <tr><td>5</td><td>2026.07.16</td><td>Physical Meeting</td><td>Integration &amp; navigation check across all pages</td><td>Yes</td><td>100%</td></tr>
+        <tr><td>6</td><td>2026.07.18</td><td>Online Meeting</td><td>Final review before submission</td><td>Yes</td><td>100%</td></tr>
       </tbody>
     </table>
   </section>
@@ -313,6 +333,7 @@ Consistent spacing also improves accessibility, giving elements enough clickable
       <li>MDN Web Docs (2025) HTML: HyperText Markup Language. Available at: https://developer.mozilla.org/ (Accessed: 16 July 2026)</li>
       <li>W3Schools (2025) HTML Tutorial. Available at: https://www.w3schools.com/html/ (Accessed: 12 July 2026).</li>
       <li>Leonardo.AI (2026) AI Image Generator. Available at: https://leonardo.ai/ (Accessed: 17 July 2026).</li>
+      <li>Lecture: Web Design and Development, Week 3 – Responsive Web Design. Available from: Module lecture materials (Accessed: 07 July 2026).</li>
     </ul>
   </section>
 

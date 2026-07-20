@@ -6,10 +6,7 @@
   <title>PULSE - User Profile</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* PAGE-SPECIFIC EMBEDDED CSS for the profile page only */
-
-    /* "Redo this step" buttons look different from the main
-       Start button - outlined instead of filled */
+    /* Secondary button styling */
     .secondary-btn {
       background-color: transparent;
       color: var(--color-muted);
@@ -22,7 +19,6 @@
       color: #ffffff;
     }
 
-    /* small label showing how many steps are done overall */
     .step-label {
       color: var(--color-muted);
       font-size: 0.9rem;
@@ -32,30 +28,30 @@
 </head>
 <body>
   <header>
-    <h1>PULSE</h1>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="ais.html">Action Impact Simulator</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="profile.html" class="active">User Profile</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="PULSE website logo - a heart with a pulse line">
+      <h2>PULSE</h2>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="ais.html">Action Simulator</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="profile.html" class="active">Profile</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+    </ul>
+  </div>
+</header>
 
+  <!-- Profile Setup Section -->
   <main>
     <section>
-      <h1>Build Your Health Habits Profile</h1>
-      <p>This page builds your profile step by step using JavaScript prompts (no forms).
-      Click "Start" on Step 1 to begin - you'll be asked 3 quick questions. Leave any prompt
-      blank or hit Cancel to skip it, and use "Redo this step" any time to go back and change
-      your answers. Your live profile and completion bar below update instantly.</p>
+      <h2>Build Your Health Habits Profile</h2>
+      <p>This page builds your profile step by step using JavaScript prompts rather than standard forms. Just click "Start" on Step 1 to begin. You will be asked three quick questions. If you want to skip a prompt, just leave it blank or hit Cancel. You can also click "Redo this step" at any time to update your answers. Your live profile and completion bar down below will update instantly.</p>
     </section>
 
-    <!-- ===== STEP 1: EXERCISE ===== -->
     <section class="card" id="step-exercise">
       <h2>Step 1: Exercise</h2>
       <p id="exercise-status">Click start to answer 3 quick questions about your exercise habits.</p>
@@ -63,7 +59,6 @@
       <button id="exercise-redo-btn" class="secondary-btn" onclick="runStep('exercise')" style="display:none">Redo this step</button>
     </section>
 
-    <!-- ===== STEP 2: SLEEP (hidden until Step 1 is done) ===== -->
     <section class="card" id="step-sleep" style="display:none">
       <h2>Step 2: Sleep</h2>
       <p id="sleep-status">Complete Step 1 first.</p>
@@ -71,7 +66,6 @@
       <button id="sleep-redo-btn" class="secondary-btn" onclick="runStep('sleep')" style="display:none">Redo this step</button>
     </section>
 
-    <!-- ===== STEP 3: DIET (hidden until Step 2 is done) ===== -->
     <section class="card" id="step-diet" style="display:none">
       <h2>Step 3: Diet</h2>
       <p id="diet-status">Complete Step 2 first.</p>
@@ -79,24 +73,22 @@
       <button id="diet-redo-btn" class="secondary-btn" onclick="runStep('diet')" style="display:none">Redo this step</button>
     </section>
 
-    <!-- ===== LIVE OUTPUT: PROFILE SUMMARY + COMPLETION ===== -->
+    <!-- Progress Output -->
     <section class="card" id="output-section">
       <h2>Your Live Profile</h2>
 
-      <!-- completion bar built with nested sections, no <div> used -->
-      <section style="background-color:#eee; border-radius:16px; height:20px; overflow:hidden;">
-        <section id="completionBar" style="background-color:#e0932e; height:20px; width:0%;"></section>
-      </section>
+      <div style="background-color:#eee; border-radius:16px; height:20px; overflow:hidden;">
+          <div id="completionBar" style="background-color:#e0932e; height:20px; width:0%;"></div>
+      </div>
       <p id="completionText">0% complete (0 of 9 answered)</p>
       <p class="step-label" id="stepText">0 of 3 steps completed</p>
 
-      <section id="profileOutput">
-        <p>Nothing here yet — click Start on Step 1 to begin.</p>
-      </section>
+      <div id="profileOutput">
+        <p>Nothing here yet - click Start on Step 1 to begin.</p>
+      </div>
     </section>
   </main>
 
-  <!-- ===== SHARED FOOTER (matches team template) ===== -->
   <footer>
     <section>
       <h2>Editors</h2>
@@ -112,8 +104,7 @@
     </section>
     <section>
       <h2>Student Details</h2>
-      <!-- TODO: replace with your real name -->
-      <p>Student 4 — User Profile &amp; Sitemap</p>
+      <p>Student 4 - User Profile and Sitemap</p>
     </section>
     <section>
       <h2>Compliance</h2>
@@ -124,30 +115,15 @@
   </footer>
 
   <script>
-    // ===============================================
-    // PULSE User Profile Page — JavaScript
-    // Collects answers using prompt(), not HTML forms, per the
-    // module spec. Steps are gated: Sleep stays hidden until
-    // Exercise is done, Diet stays hidden until Sleep is done.
-    //
-    // NOTE: profileData only lives in memory while the page is
-    // open. Refreshing the page re-runs this script from the top,
-    // so everything resets - that's expected with plain JS and no
-    // database/localStorage involved, not a bug.
-    // ===============================================
-
-    // Object holding every answer. Starts as null (not visited yet).
+    // Global data stores
     var profileData = {
       exercise: { q1: null, q2: null, q3: null },
       sleep:    { q1: null, q2: null, q3: null },
       diet:     { q1: null, q2: null, q3: null }
     };
 
-    // Tracks whether each step has been run at least once
     var stepStarted = { exercise: false, sleep: false, diet: false };
 
-    // The 3 prompt questions for each step, plus which step
-    // unlocks next. diet.next is null because it's the last step.
     var stepConfig = {
       exercise: {
         qKeys: ["q1", "q2", "q3"],
@@ -178,9 +154,7 @@
       }
     };
 
-    // Runs (or re-runs) one step: asks its 3 prompts in sequence,
-    // stores each answer (or "Skipped" if left blank/cancelled),
-    // then reveals the next step and refreshes the live output.
+    // Triggers the wizard questionnaire prompts
     function runStep(category) {
       var config = stepConfig[category];
 
@@ -197,12 +171,10 @@
 
       stepStarted[category] = true;
 
-      // swap the Start button for the Redo button
       document.getElementById(category + "-start-btn").style.display = "none";
       document.getElementById(category + "-redo-btn").style.display = "inline-block";
-      document.getElementById(category + "-status").innerHTML = "Step complete — click \"Redo this step\" any time to change your answers.";
+      document.getElementById(category + "-status").innerHTML = "Step complete - click \"Redo this step\" any time to change your answers.";
 
-      // unlock the next step, if there is one
       if (config.next !== null) {
         document.getElementById("step-" + config.next).style.display = "block";
         document.getElementById(config.next + "-status").innerHTML = "Click start to answer 3 quick questions.";
@@ -211,16 +183,12 @@
       updateProfile();
     }
 
-    // Rebuilds the live output section, completion bar, and step
-    // counter. A step's block only appears once it has been started.
-    // Skipped questions are shown as "Skipped" and don't count
-    // towards the completion percentage.
+    // Recalculates metrics and renders results
     function updateProfile() {
       var answered = 0;
       var stepsDone = 0;
       var output = "";
 
-      // ----- Step 1: Exercise -----
       if (stepStarted.exercise) {
         stepsDone = stepsDone + 1;
         output += "<p><strong>Step 1: Exercise</strong></p>";
@@ -232,7 +200,6 @@
         if (profileData.exercise.q3 !== "Skipped") { answered = answered + 1; }
       }
 
-      // ----- Step 2: Sleep -----
       if (stepStarted.sleep) {
         stepsDone = stepsDone + 1;
         output += "<p><strong>Step 2: Sleep</strong></p>";
@@ -244,7 +211,6 @@
         if (profileData.sleep.q3 !== "Skipped") { answered = answered + 1; }
       }
 
-      // ----- Step 3: Diet -----
       if (stepStarted.diet) {
         stepsDone = stepsDone + 1;
         output += "<p><strong>Step 3: Diet</strong></p>";
@@ -257,7 +223,7 @@
       }
 
       if (stepsDone === 0) {
-        output = "<p>Nothing here yet — click Start on Step 1 to begin.</p>";
+        output = "<p>Nothing here yet - click Start on Step 1 to begin.</p>";
       } else if (stepsDone === 3) {
         output += "<p><strong>All 3 steps complete!</strong> You can still use \"Redo this step\" above to change any answer.</p>";
       }
@@ -266,10 +232,9 @@
 
       document.getElementById("profileOutput").innerHTML = output;
       document.getElementById("completionBar").style.width = percent + "%";
-      document.getElementById("completionText").innerHTML = percent + "% complete (" + answered + " of 9 answered — skips don't count)";
+      document.getElementById("completionText").innerHTML = percent + "% complete (" + answered + " of 9 answered - skips don't count)";
       document.getElementById("stepText").innerHTML = stepsDone + " of 3 steps completed";
     }
   </script>
-
 </body>
 </html>

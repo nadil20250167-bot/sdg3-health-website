@@ -48,6 +48,7 @@ header{
     align-items:center;
     background:#0b72b5;
     padding:15px 50px;
+    width: 100%;
 }
 
 .logo{
@@ -364,5 +365,256 @@ tr:hover {
 }
 
 
+/* =========================================================================================================================================== */
 
+
+:root {
+  --color-primary: #3a7689;    /* dark green */
+  --color-secondary: #e0932e;  /* orange */
+  --color-accent: #4966ad;     /* olive green */
+  --color-dark: #1f3a54;       /* navy - footer background */
+  --color-bg: #eef4fa;         /* soft blue-white page background */
+  --color-text: #2b2b2b;       /* body text */
+  --color-muted: #6b6b6b;      /* secondary text */
+  --radius: 16px;              /* rounded corner size used everywhere */
+  --shadow: 0 8px 22px rgba(31, 58, 84, 0.18);
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+/* -----------------------------
+   3. HEADER + NAV
+   ----------------------------- */
+header {
+  background-color: #ffffff;
+  box-shadow: var(--shadow);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  background-color:#5584e9da;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* hover effect on nav links */
+nav a:hover,
+nav a:focus-visible {
+  background-color: rgb(73, 102, 170);
+  color: #ffffff;
+}
+
+/* active page indicator - each page adds this class to its own link */
+nav a.active {
+  background-color: rgb(29, 100, 176);
+  color: #fefefe;
+}
+
+/* -----------------------------
+   4. MAIN CONTENT AREA
+   ----------------------------- */
+main {
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+p {
+  color: var(--color-text);
+}
+
+/* -----------------------------
+   5. CARDS
+   (used on home/gallery/content pages for consistency)
+   ----------------------------- */
+.card {
+  background-color: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(31, 58, 84, 0.25);
+}
+
+/* -----------------------------
+   6. BUTTONS
+   ----------------------------- */
+button {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+button:focus-visible {
+  background-color: var(--color-accent);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* a "selected" state buttons can toggle on/off with JS (see profile.html) */
+button.selected {
+  background-color: var(--color-secondary);
+}
+
+/* -----------------------------
+   7. LINKS (general)
+   ----------------------------- */
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-secondary);
+}
+
+/* -----------------------------
+   8. IMAGES
+   ----------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* -----------------------------
+   9. ACCESSIBILITY - FOCUS STYLE
+   ----------------------------- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* -----------------------------
+   10. FOOTER
+   ----------------------------- */
+footer {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 -6px 18px rgba(31, 58, 84, 0.3);
+}
+
+footer h2 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+footer a {
+  color: #cfe3d8;
+}
+
+footer a:hover,
+footer a:focus-visible {
+  color: var(--color-secondary);
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  margin-bottom: 6px;
+}
+
+/* -----------------------------
+   11. "GO TO TOP" BUTTON (used on content page)
+   ----------------------------- */
+.go-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  font-weight: bold;
+}
+
+.go-top:hover,
+.go-top:focus-visible {
+  background-color: var(--color-primary);
+}
+
+.validation-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid #999;
+  margin: 12px 0;
+}
 
